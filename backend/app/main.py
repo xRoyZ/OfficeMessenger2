@@ -18,6 +18,7 @@ from alembic import command
 from app.config import Settings, get_settings
 from app.errors import UnhandledErrorMiddleware, register_exception_handlers
 from app.routers import auth, chats, files, groups, messages, profile, status, users
+from app.services.uploads import UploadSizeLimitMiddleware
 
 logger = logging.getLogger("app")
 
@@ -74,6 +75,7 @@ def create_app() -> FastAPI:
     settings = get_settings()
 
     app.add_middleware(UnhandledErrorMiddleware)
+    app.add_middleware(UploadSizeLimitMiddleware, max_bytes=settings.max_upload_bytes)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=[settings.cors_origin],
