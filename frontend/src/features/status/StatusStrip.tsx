@@ -102,7 +102,12 @@ function OwnEntry({ group, onOpen }: OwnEntryProps) {
           </span>
         )}
       </span>
-      <span className="status-item__name">Mein Status</span>
+      <span
+        className="status-item__name"
+        style={{ width: 'auto', overflow: 'visible', textOverflow: 'clip' }}
+      >
+        Mein Status
+      </span>
       <span className="status-item__time">{latest ? formatStatusTime(latest.created_at) : 'Hinzufügen'}</span>
     </div>
   );
