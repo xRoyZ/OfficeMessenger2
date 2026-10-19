@@ -294,6 +294,8 @@ export default function ChatListPage() {
     direct: allChats.filter((chat) => chat.kind === 'direct').length,
   };
   const showEmpty = !loading && chats.length === 0 && contacts.length === 0;
+  const hasSearchTerm = search.trim().length > 0;
+  const showNeutralEmpty = showEmpty && !hasSearchTerm && filter === 'all';
 
   return (
     <AppShell>
@@ -341,7 +343,12 @@ export default function ChatListPage() {
           value={search}
           onChange={(event) => setSearch(event.target.value)}
         />
-        <div className="filter-bar" role="group" aria-label="Chats nach Art filtern">
+        <div
+          className="filter-bar"
+          role="group"
+          aria-label="Chats nach Art filtern"
+          style={{ flexWrap: 'wrap', overflowX: 'visible' }}
+        >
           {FILTERS.map((entry) => (
             <FilterChip
               key={entry.id}
@@ -372,7 +379,12 @@ export default function ChatListPage() {
             ))}
           </div>
         )}
-        {showEmpty ? (
+        {showNeutralEmpty ? (
+          <EmptyState
+            title="Noch keine Chats — starte über Kontakte ein Gespräch."
+          />
+        ) : null}
+        {showEmpty && !showNeutralEmpty ? (
           <EmptyState
             title="Nichts gefunden"
             description="Kein Chat und keine Kontaktperson passt zu deiner Suche."
