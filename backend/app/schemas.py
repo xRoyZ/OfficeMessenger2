@@ -54,6 +54,11 @@ class LastMessageOut(BaseModel):
     created_at: datetime
 
 
+class ChatMemberOut(BaseModel):
+    user: UserOut
+    role: ChatRole
+
+
 class ChatOut(BaseModel):
     id: uuid.UUID
     kind: ChatKind
@@ -61,6 +66,7 @@ class ChatOut(BaseModel):
     photo_url: str | None = None
     role: ChatRole | None = None
     member_count: int
+    members: list[ChatMemberOut]
     unread_count: int
     last_activity_at: datetime | None = None
     last_message: LastMessageOut | None = None

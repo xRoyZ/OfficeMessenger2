@@ -212,6 +212,48 @@ def test_own_messages_do_not_count_as_unread(
     assert payload[0]["unread_count"] == 1
 
 
+def test_group_detail_lists_every_member_with_role(
+    db_session: Session,
+    user_factory,
+    auth_client,
+) -> None:
+    owner = user_factory(display_name="Zoe Admin")
+    ben = user_factory(display_name="Ben Member")
+    clara = user_factory(display_name="Amy Member")
+    group = _make_group(db_session, owner, ben, clara, name="Projektteam")
+
+    response = auth_client(owner).get(f"/api/chats/{group.id}")
+    assert response.status_code == 200, response.text
+    payload = response.json()
+
+    assert payload["member_count"] == 3
+    assert [entry["user"]["display_name"] for entry in payload["members"]] == [
+        "Amy Member",
+        "Ben Member",
+        "Zoe Admin",
+    ]
+    roles = {entry["user"]["display_name"]: entry["role"] for entry in payload["members"]}
+    assert roles == {"Amy Member": "member", "Ben Member": "member", "Zoe Admin": "admin"}
+    for entry in payload["members"]:
+        assert entry["user"]["id"]
+        assert "avatar_url" in entry["user"]
+
+
+def test_direct_chat_detail_returns_no_member_list(
+    db_session: Session,
+    user_factory,
+    auth_client,
+) -> None:
+    owner = user_factory(display_name="Owner")
+    other = user_factory(display_name="Other")
+    chat = _make_direct_chat(db_session, owner, other)
+
+    response = auth_client(owner).get(f"/api/chats/{chat.id}")
+    assert response.status_code == 200, response.text
+    assert response.json()["members"] == []
+    assert response.json()["member_count"] == 2
+
+
 def test_non_member_gets_404_for_a_foreign_chat(
     db_session: Session,
     user_factory,

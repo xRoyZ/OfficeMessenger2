@@ -14,7 +14,7 @@ from app.db import get_db
 from app.deps import get_current_user, require_chat_membership
 from app.errors import ApiError
 from app.models import Chat, ChatMember, Message, User
-from app.schemas import ChatOut, DirectChatIn, LastMessageOut
+from app.schemas import ChatMemberOut, ChatOut, DirectChatIn, LastMessageOut, UserOut
 
 router = APIRouter(
     prefix="/api/chats",
@@ -103,6 +103,13 @@ def build_chat_out(
     title, photo_url = _presentation(chat, counterpart)
     last_message, last_activity_at = _last_message_out(db, chat)
 
+    member_entries: list[ChatMemberOut] = []
+    if chat.kind == "group":
+        member_entries = [
+            ChatMemberOut(user=UserOut.model_validate(member_user), role=member.role)
+            for member, member_user in members
+        ]
+
     return ChatOut(
         id=chat.id,
         kind=chat.kind,
@@ -110,6 +117,7 @@ def build_chat_out(
         photo_url=photo_url,
         role=membership.role,
         member_count=len(members),
+        members=member_entries,
         unread_count=_unread_count(db, membership, current_user.id),
         last_activity_at=last_activity_at,
         last_message=last_message,
