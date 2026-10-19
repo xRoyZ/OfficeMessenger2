@@ -47,6 +47,15 @@ def _system_texts(db: Session, chat_id) -> list[str]:
     return [row.text for row in rows]
 
 
+def _role_of(chat: dict, user_id) -> str | None:
+    """Return the role the response lists for ``user_id``, or None if absent."""
+
+    for entry in chat["members"]:
+        if entry["user"]["id"] == str(user_id):
+            return entry["role"]
+    return None
+
+
 def test_creation_makes_creator_admin_and_lists_group_for_every_member(
     client: TestClient, user_factory, db_session: Session
 ) -> None:
@@ -136,6 +145,41 @@ def test_plain_member_cannot_mutate_the_group(
     assert photo.status_code == 403
 
 
+def test_creation_and_settings_responses_list_members_with_roles(
+    client: TestClient, user_factory
+) -> None:
+    anna = user_factory(display_name="Anna")
+    ben = user_factory(display_name="Ben")
+    clara = user_factory(display_name="Clara")
+
+    created = _create_group(client, anna, [ben, clara])
+    chat_id = created["id"]
+    assert _role_of(created, anna.user.id) == "admin"
+    assert _role_of(created, ben.user.id) == "member"
+    assert _role_of(created, clara.user.id) == "member"
+    assert [entry["user"]["display_name"] for entry in created["members"]] == [
+        "Anna",
+        "Ben",
+        "Clara",
+    ]
+
+    renamed = client.patch(
+        f"/api/groups/{chat_id}",
+        json={"name": "Neues Team"},
+        headers=_headers(anna),
+    )
+    assert renamed.status_code == 200
+    assert len(renamed.json()["members"]) == 3
+
+    photo = client.post(
+        f"/api/groups/{chat_id}/photo",
+        files={"file": ("gruppe.png", io.BytesIO(PNG_BYTES), "image/png")},
+        headers=_headers(anna),
+    )
+    assert photo.status_code == 200
+    assert len(photo.json()["members"]) == 3
+
+
 def test_admin_renames_and_changes_the_photo(client: TestClient, user_factory) -> None:
     anna = user_factory(display_name="Anna")
     ben = user_factory(display_name="Ben")
@@ -177,6 +221,7 @@ def test_admin_adds_removes_and_promotes_members(
     )
     assert added.status_code == 200
     assert added.json()["member_count"] == 3
+    assert _role_of(added.json(), clara.user.id) == "member"
 
     promoted = client.post(
         f"/api/groups/{chat_id}/admins",
@@ -184,6 +229,7 @@ def test_admin_adds_removes_and_promotes_members(
         headers=_headers(anna),
     )
     assert promoted.status_code == 200
+    assert _role_of(promoted.json(), clara.user.id) == "admin"
     assert _membership(db_session, chat_id, clara.user.id).role == "admin"
 
     demoted = client.delete(
@@ -191,6 +237,7 @@ def test_admin_adds_removes_and_promotes_members(
         headers=_headers(anna),
     )
     assert demoted.status_code == 200
+    assert _role_of(demoted.json(), clara.user.id) == "member"
     assert _membership(db_session, chat_id, clara.user.id).role == "member"
 
     removed = client.delete(
@@ -199,6 +246,11 @@ def test_admin_adds_removes_and_promotes_members(
     )
     assert removed.status_code == 200
     assert removed.json()["member_count"] == 2
+    assert _role_of(removed.json(), clara.user.id) is None
+    assert [entry["user"]["display_name"] for entry in removed.json()["members"]] == [
+        "Anna",
+        "Ben",
+    ]
     assert _membership(db_session, chat_id, clara.user.id) is None
 
     missing = client.post(
