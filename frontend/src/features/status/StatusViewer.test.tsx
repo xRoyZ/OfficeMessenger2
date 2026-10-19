@@ -97,12 +97,16 @@ describe('StatusViewer', () => {
     renderViewer('user-clara');
 
     expect(await screen.findByRole('heading', { name: 'Erster Status' })).toBeInTheDocument();
-    expect(apiMock.post).toHaveBeenCalledWith('/api/status/status-one/view');
+    await waitFor(() => {
+      expect(apiMock.post).toHaveBeenCalledWith('/api/status/status-one/view');
+    });
 
     fireEvent.click(screen.getByRole('button', { name: 'Nächster Status' }));
 
     expect(await screen.findByRole('heading', { name: 'Zweiter Status' })).toBeInTheDocument();
-    expect(apiMock.post).toHaveBeenCalledWith('/api/status/status-two/view');
+    await waitFor(() => {
+      expect(apiMock.post).toHaveBeenCalledWith('/api/status/status-two/view');
+    });
 
     fireEvent.click(screen.getByRole('button', { name: 'Nächster Status' }));
 
@@ -161,6 +165,8 @@ describe('StatusViewer', () => {
     expect(await screen.findByText('Betrachter')).toBeInTheDocument();
     expect(await screen.findByText('Ben Osei')).toBeInTheDocument();
     expect(screen.getAllByText(/^vor \d+ Min\.$/).length).toBeGreaterThan(0);
-    expect(apiMock.post).toHaveBeenCalledWith('/api/status/status-own/view');
+    await waitFor(() => {
+      expect(apiMock.post).toHaveBeenCalledWith('/api/status/status-own/view');
+    });
   });
 });
