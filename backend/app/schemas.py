@@ -30,7 +30,9 @@ class UserOut(_FromAttributes):
 
 
 class MeOut(UserOut):
-    email: EmailStr
+    # Output only: stored addresses such as the demo accounts' ``@demo.local``
+    # are legitimate for this product, so do not re-validate deliverability.
+    email: str
 
 
 class AuthOut(BaseModel):
