@@ -50,5 +50,15 @@
         }
       }
     }
-  ]
+  ],
+  "demo_accounts": {
+    "admin": {
+      "login": "anna@demo.local",
+      "password": "Demo1234!"
+    },
+    "user": {
+      "login": "clara@demo.local",
+      "password": "Demo1234!"
+    }
+  }
 }
