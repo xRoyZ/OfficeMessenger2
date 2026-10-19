@@ -99,6 +99,28 @@ describe('StatusStrip', () => {
     expect(apiMock.get).toHaveBeenCalledWith('/api/status');
   });
 
+  it('renders the own status label in full and does not clip chip labels', async () => {
+    apiMock.get.mockResolvedValue([
+      group({ user: anna, is_own: true, has_unseen: false }),
+      group({ user: clara, has_unseen: true }),
+    ]);
+
+    renderStrip();
+
+    const ownLabel = await screen.findByText('Mein Status');
+    expect(ownLabel).toHaveTextContent(/^Mein Status$/);
+    expect(ownLabel.closest('[data-testid="status-self"]')).not.toBeNull();
+    expect(ownLabel).toHaveStyle({
+      width: 'auto',
+      overflow: 'visible',
+      textOverflow: 'clip',
+    });
+
+    const chipLabel = screen.getByText('Clara');
+    expect(chipLabel).toHaveTextContent(/^Clara$/);
+    expect(chipLabel).not.toHaveAttribute('style');
+  });
+
   it('marks a ring as unseen while has_unseen is true and as seen afterwards', async () => {
     apiMock.get.mockResolvedValue([group({ user: clara, has_unseen: true })]);
     const onOpen = vi.fn();
