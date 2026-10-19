@@ -5,21 +5,15 @@ from __future__ import annotations
 import uuid
 
 from fastapi import APIRouter, Depends, File, UploadFile, status
-from sqlalchemy import func, or_, select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from app.db import get_db
 from app.deps import get_current_user, require_chat_membership, require_group_admin
 from app.errors import ApiError
 from app.models import Chat, ChatMember, Message, User
-from app.schemas import (
-    ChatOut,
-    GroupCreateIn,
-    GroupMemberIn,
-    GroupUpdateIn,
-    LastMessageOut,
-    WsEvent,
-)
+from app.routers.chats import build_chat_out
+from app.schemas import ChatOut, GroupCreateIn, GroupMemberIn, GroupUpdateIn, WsEvent
 from app.services.realtime import manager
 from app.services.uploads import save_image
 
@@ -80,55 +74,6 @@ def _system_message(db: Session, chat_id: uuid.UUID, text: str) -> None:
     db.add(Message(chat_id=chat_id, sender_id=None, kind="system", text=text))
 
 
-def _chat_out(db: Session, chat: Chat, membership: ChatMember) -> ChatOut:
-    """Serialize a group chat from the point of view of ``membership``."""
-
-    member_count = (
-        db.scalar(select(func.count()).select_from(ChatMember).where(ChatMember.chat_id == chat.id))
-        or 0
-    )
-
-    last_message = db.scalar(
-        select(Message).where(Message.chat_id == chat.id).order_by(Message.id.desc()).limit(1)
-    )
-
-    unread_stmt = (
-        select(func.count())
-        .select_from(Message)
-        .where(
-            Message.chat_id == chat.id,
-            or_(Message.sender_id.is_(None), Message.sender_id != membership.user_id),
-        )
-    )
-    if membership.last_read_message_id is not None:
-        unread_stmt = unread_stmt.where(Message.id > membership.last_read_message_id)
-    unread_count = db.scalar(unread_stmt) or 0
-
-    last_message_out: LastMessageOut | None = None
-    if last_message is not None:
-        sender_name: str | None = None
-        if last_message.sender_id is not None:
-            sender = db.get(User, last_message.sender_id)
-            sender_name = sender.display_name if sender is not None else None
-        last_message_out = LastMessageOut(
-            text=last_message.text,
-            sender_display_name=sender_name,
-            created_at=last_message.created_at,
-        )
-
-    return ChatOut(
-        id=chat.id,
-        kind="group",
-        title=chat.name or "Gruppe",
-        photo_url=chat.photo_url,
-        role=membership.role,
-        member_count=member_count,
-        unread_count=unread_count,
-        last_activity_at=last_message.created_at if last_message is not None else chat.created_at,
-        last_message=last_message_out,
-    )
-
-
 async def _broadcast(db: Session, chat_id: uuid.UUID) -> None:
     recipients = [member.user_id for member in _members(db, chat_id)]
     await manager.broadcast_to_users(recipients, WsEvent(type="chat:updated", chat_id=chat_id))
@@ -168,7 +113,7 @@ async def create_group(
 
     membership = _member(db, chat.id, user.id)
     assert membership is not None
-    result = _chat_out(db, chat, membership)
+    result = build_chat_out(db, chat, membership, user)
     await _broadcast(db, chat.id)
     return result
 
@@ -177,6 +122,7 @@ async def create_group(
 async def update_group(
     chat_id: uuid.UUID,
     payload: GroupUpdateIn,
+    user: User = Depends(get_current_user),
     membership: ChatMember = Depends(require_group_admin),
     db: Session = Depends(get_db),
 ) -> ChatOut:
@@ -187,7 +133,7 @@ async def update_group(
     db.commit()
     db.refresh(chat)
 
-    result = _chat_out(db, chat, membership)
+    result = build_chat_out(db, chat, membership, user)
     await _broadcast(db, chat_id)
     return result
 
@@ -209,7 +155,7 @@ async def upload_group_photo(
     db.commit()
     db.refresh(chat)
 
-    result = _chat_out(db, chat, membership)
+    result = build_chat_out(db, chat, membership, user)
     await _broadcast(db, chat_id)
     return result
 
@@ -241,7 +187,7 @@ async def add_group_member(
         db.commit()
         await _broadcast(db, chat_id)
 
-    return _chat_out(db, chat, membership)
+    return build_chat_out(db, chat, membership, user)
 
 
 @router.delete("/{chat_id}/members/{user_id}", response_model=ChatOut)
@@ -269,7 +215,7 @@ async def remove_group_member(
     db.commit()
     await _broadcast(db, chat_id)
 
-    return _chat_out(db, chat, membership)
+    return build_chat_out(db, chat, membership, user)
 
 
 @router.post("/{chat_id}/admins", response_model=ChatOut)
@@ -295,7 +241,7 @@ async def promote_group_admin(
         db.commit()
         await _broadcast(db, chat_id)
 
-    return _chat_out(db, chat, membership)
+    return build_chat_out(db, chat, membership, user)
 
 
 @router.delete("/{chat_id}/admins/{user_id}", response_model=ChatOut)
@@ -323,7 +269,7 @@ async def demote_group_admin(
         db.commit()
         await _broadcast(db, chat_id)
 
-    return _chat_out(db, chat, membership)
+    return build_chat_out(db, chat, membership, user)
 
 
 @router.post("/{chat_id}/leave", status_code=status.HTTP_204_NO_CONTENT)
