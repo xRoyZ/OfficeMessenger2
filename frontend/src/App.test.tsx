@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom/vitest';
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import { Link, MemoryRouter, useLocation } from 'react-router-dom';
 import { afterEach, describe, expect, it } from 'vitest';
 import App from './App';
@@ -41,9 +41,11 @@ describe('App shell', () => {
   it('renders the header slot, the main slot and the legal footer', () => {
     render(
       <MemoryRouter>
-        <AppShell header={<span>Navigation</span>}>
-          <p>Inhalt der Seite</p>
-        </AppShell>
+        <AuthProvider>
+          <AppShell header={<span>Navigation</span>}>
+            <p>Inhalt der Seite</p>
+          </AppShell>
+        </AuthProvider>
       </MemoryRouter>,
     );
 
@@ -51,11 +53,16 @@ describe('App shell', () => {
     expect(screen.getByText('Navigation')).toBeInTheDocument();
     expect(screen.getByText('Inhalt der Seite')).toBeInTheDocument();
     expect(screen.getByText('OfficeMessenger2 · internes Büro')).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Impressum' })).toHaveAttribute('href', '/impressum');
-    expect(screen.getByRole('link', { name: 'Datenschutzerklärung' })).toHaveAttribute(
+
+    const footer = screen.getByText('OfficeMessenger2 · internes Büro').closest('footer');
+    expect(footer).not.toBeNull();
+    expect(within(footer as HTMLElement).getByRole('link', { name: 'Impressum' })).toHaveAttribute(
       'href',
-      '/datenschutz',
+      '/impressum',
     );
+    expect(
+      within(footer as HTMLElement).getByRole('link', { name: 'Datenschutzerklärung' }),
+    ).toHaveAttribute('href', '/datenschutz');
   });
 });
 
