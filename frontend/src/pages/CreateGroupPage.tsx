@@ -13,6 +13,7 @@ import {
 } from '../components';
 import { AppShell } from '../layout/AppShell';
 import { ApiError, api } from '../lib/api';
+import { useAuthedBlobUrl } from '../lib/assets';
 import './group-screens.css';
 import type { ChatOut, UserOut } from '../lib/types';
 
@@ -37,6 +38,11 @@ function GroupPlaceholder() {
       <path d="M16 8.4a3 3 0 0 1 0 5.7M17 14c2.1.5 3.4 2.2 3.8 4.5" />
     </svg>
   );
+}
+
+function MemberAvatar({ user }: { user: UserOut }) {
+  const avatarUrl = useAuthedBlobUrl(user.avatar_url);
+  return <Avatar src={avatarUrl} name={user.display_name} size="sm" alt="" />;
 }
 
 export default function CreateGroupPage() {
@@ -312,12 +318,7 @@ export default function CreateGroupPage() {
                         checked={selected.has(user.id)}
                         onChange={() => toggleMember(user.id)}
                       />
-                      <Avatar
-                        src={user.avatar_url}
-                        name={user.display_name}
-                        size="sm"
-                        alt=""
-                      />
+                      <MemberAvatar user={user} />
                       <span className="member-option__body">
                         <span className="member-option__name">{user.display_name}</span>
                         {user.status_text ? (

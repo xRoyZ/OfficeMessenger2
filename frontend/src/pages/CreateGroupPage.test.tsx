@@ -6,6 +6,12 @@ import { api } from '../lib/api';
 import type { ChatOut, UserOut } from '../lib/types';
 import CreateGroupPage from './CreateGroupPage';
 
+const { useAuthedBlobUrlMock } = vi.hoisted(() => ({
+  useAuthedBlobUrlMock: vi.fn((path: string | null) =>
+    path ? `blob:loaded:${path}` : null,
+  ),
+}));
+
 vi.mock('../lib/api', async (importOriginal) => {
   const actual = await importOriginal<typeof import('../lib/api')>();
   return {
@@ -21,7 +27,7 @@ vi.mock('../lib/api', async (importOriginal) => {
 });
 
 vi.mock('../lib/assets', () => ({
-  useAuthedBlobUrl: () => null,
+  useAuthedBlobUrl: useAuthedBlobUrlMock,
 }));
 
 vi.mock('../context/AuthContext', () => ({
@@ -167,5 +173,40 @@ describe('CreateGroupPage', () => {
     await waitFor(() => {
       expect(getMock).toHaveBeenLastCalledWith('/api/users?search=Ben');
     });
+  });
+
+  it('loads member avatars through the authenticated blob loader', async () => {
+    const avatarPath = '/api/files/0856f8c0-0000-4000-8000-000000000001';
+    const benWithAvatar: UserOut = { ...ben, avatar_url: avatarPath };
+    getMock.mockResolvedValue([benWithAvatar]);
+
+    renderPage();
+
+    const name = await screen.findByText('Ben Osei');
+    const row = name.closest('label');
+    expect(row).not.toBeNull();
+
+    await waitFor(() => {
+      expect(useAuthedBlobUrlMock).toHaveBeenCalledWith(avatarPath);
+    });
+
+    const image = row?.querySelector('img.avatar');
+    expect(image).not.toBeNull();
+    expect(image).toHaveAttribute('src', `blob:loaded:${avatarPath}`);
+    expect(image?.getAttribute('src')).not.toBe(avatarPath);
+  });
+
+  it('renders the initials circle for a member without an avatar', async () => {
+    const claraWithoutAvatar: UserOut = { ...clara, avatar_url: null };
+    getMock.mockResolvedValue([claraWithoutAvatar]);
+
+    renderPage();
+
+    const name = await screen.findByText('Clara Nguyen');
+    const row = name.closest('label');
+    expect(row).not.toBeNull();
+    expect(useAuthedBlobUrlMock).toHaveBeenCalledWith(null);
+    expect(row?.querySelector('img.avatar')).toBeNull();
+    expect(row?.querySelector('.avatar--initials')).toHaveTextContent('CN');
   });
 });
