@@ -303,6 +303,50 @@ describe('ChatListPage', () => {
     expect(await screen.findByText('Chat geöffnet')).toBeInTheDocument();
   });
 
+  it('shows the neutral empty state with no search term and the Alle filter', async () => {
+    mockBackend([]);
+
+    renderPage();
+
+    expect(
+      await screen.findByText('Noch keine Chats — starte über Kontakte ein Gespräch.'),
+    ).toBeInTheDocument();
+    expect(screen.queryByText('Nichts gefunden')).not.toBeInTheDocument();
+  });
+
+  it('shows the search wording once a term is typed', async () => {
+    mockBackend([]);
+
+    renderPage();
+    await screen.findByText('Noch keine Chats — starte über Kontakte ein Gespräch.');
+
+    fireEvent.change(screen.getByRole('searchbox', { name: 'Chats und Kontakte suchen' }), {
+      target: { value: 'niemand' },
+    });
+
+    expect(await screen.findByText('Nichts gefunden')).toBeInTheDocument();
+    expect(
+      screen.getByText('Kein Chat und keine Kontaktperson passt zu deiner Suche.'),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByText('Noch keine Chats — starte über Kontakte ein Gespräch.'),
+    ).not.toBeInTheDocument();
+  });
+
+  it('shows the search wording once a specific filter is chosen', async () => {
+    mockBackend([]);
+
+    renderPage();
+    await screen.findByText('Noch keine Chats — starte über Kontakte ein Gespräch.');
+
+    fireEvent.click(screen.getByRole('button', { name: /Ungelesen/ }));
+
+    expect(await screen.findByText('Nichts gefunden')).toBeInTheDocument();
+    expect(
+      screen.queryByText('Noch keine Chats — starte über Kontakte ein Gespräch.'),
+    ).not.toBeInTheDocument();
+  });
+
   it('reloads the list when a realtime event arrives', async () => {
     const liveChats = [productChat];
     mockBackend(liveChats);
