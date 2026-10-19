@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Gruppenfoto Produkt und Design">
+  <defs>
+    <linearGradient id="g" x1="20" y1="10" x2="500" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#173f3c"/>
+      <stop offset=".55" stop-color="#3d8170"/>
+      <stop offset="1" stop-color="#c8dfc1"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#g)"/>
+  <circle cx="403" cy="99" r="170" fill="#fff" opacity=".08"/>
+  <circle cx="98" cy="430" r="120" fill="#082924" opacity=".22"/>
+  <path d="M52 362C147 275 309 266 465 173" fill="none" stroke="#fff" stroke-width="2" opacity=".18"/>
+  <path d="M77 401C182 303 326 307 477 225" fill="none" stroke="#fff" stroke-width="2" opacity=".12"/>
+  <rect x="74" y="85" width="124" height="124" rx="34" fill="#fff" opacity=".12"/>
+  <rect x="219" y="166" width="198" height="198" rx="48" fill="#0b2b27" opacity=".26"/>
+  <text x="273" y="302" text-anchor="middle" font-family="Aptos, Segoe UI, sans-serif" font-size="78" font-weight="600" letter-spacing="-5" fill="#f8fffb">P&amp;D</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-label="Statusbild Morgenlicht im Studio">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#acc8cf"/>
+      <stop offset=".5" stop-color="#e3d6b8"/>
+      <stop offset="1" stop-color="#f3d8a9"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fdf4dc" stop-opacity=".58"/>
+      <stop offset="1" stop-color="#fdf4dc" stop-opacity=".05"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#263b3d"/>
+      <stop offset="1" stop-color="#54665f"/>
+    </linearGradient>
+    <radialGradient id="sun" cx=".5" cy=".5" r=".5">
+      <stop stop-color="#fff4cc"/>
+      <stop offset=".45" stop-color="#ffe3a2" stop-opacity=".82"/>
+      <stop offset="1" stop-color="#ffe3a2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="1600" fill="url(#wall)"/>
+  <rect x="126" y="214" width="948" height="960" rx="12" fill="#132426"/>
+  <rect x="158" y="246" width="884" height="896" fill="url(#sky)"/>
+  <rect x="158" y="246" width="884" height="896" fill="url(#glass)"/>
+  <circle cx="810" cy="470" r="230" fill="url(#sun)"/>
+  <circle cx="810" cy="470" r="105" fill="#fff3cd" opacity=".9"/>
+  <path d="M158 887C322 814 421 934 614 858C785 791 897 848 1042 772V1142H158Z" fill="#70847d" opacity=".44"/>
+  <path d="M158 962C341 893 474 1000 636 934C805 866 945 914 1042 882V1142H158Z" fill="#4e6662" opacity=".52"/>
+  <rect x="585" y="246" width="20" height="896" fill="#132426"/>
+  <rect x="158" y="672" width="884" height="17" fill="#132426"/>
+  <rect x="66" y="1152" width="1068" height="64" rx="12" fill="#b8ad94"/>
+  <rect x="72" y="1216" width="1056" height="384" fill="#2f403d"/>
+  <path d="M72 1216H1128L1030 1600H170Z" fill="#24322f" opacity=".7"/>
+  <path d="M936 1152C972 1067 1033 1035 1098 1046C1086 1117 1037 1167 936 1152Z" fill="#3d5c4d"/>
+  <path d="M1024 1074C1039 982 1095 928 1157 916C1168 1007 1124 1079 1024 1074Z" fill="#52725f"/>
+  <path d="M963 1142C936 1058 883 1028 828 1047C844 1113 892 1157 963 1142Z" fill="#315041"/>
+  <rect x="936" y="1146" width="92" height="178" rx="16" fill="#46372a"/>
+  <rect x="296" y="1190" width="260" height="35" rx="16" fill="#e0cba4" opacity=".5"/>
+  <rect x="286" y="1235" width="250" height="149" rx="8" fill="#efe6d3" transform="rotate(-3 286 1235)"/>
+  <path d="M326 1288H499M326 1325H478M326 1362H430" stroke="#3b453f" stroke-width="7" stroke-linecap="round" opacity=".42"/>
+  <path d="M120 1450C365 1387 735 1430 1084 1329" fill="none" stroke="#e8d6af" stroke-width="2" opacity=".18"/>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-label="Statusbild Kaffee am Arbeitsplatz">
+  <defs>
+    <linearGradient id="bg" x1="100" y1="0" x2="1100" y2="1600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12222a"/>
+      <stop offset=".52" stop-color="#28434b"/>
+      <stop offset="1" stop-color="#8d765d"/>
+    </linearGradient>
+    <linearGradient id="table" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#6e5741"/>
+      <stop offset="1" stop-color="#30271f"/>
+    </linearGradient>
+    <radialGradient id="warm" cx=".68" cy=".44" r=".5">
+      <stop stop-color="#ffd99c" stop-opacity=".52"/>
+      <stop offset="1" stop-color="#ffd99c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="1600" fill="url(#bg)"/>
+  <rect width="1200" height="1600" fill="url(#warm)"/>
+  <path d="M0 1030C250 982 426 1044 640 1010C852 977 1014 1003 1200 966V1600H0Z" fill="url(#table)"/>
+  <path d="M0 1083C295 1029 478 1098 680 1059C909 1015 1056 1052 1200 1013" fill="none" stroke="#d3b68c" stroke-width="3" opacity=".26"/>
+  <path d="M0 1122C272 1070 503 1137 729 1095C937 1057 1092 1089 1200 1062" fill="none" stroke="#d3b68c" stroke-width="2" opacity=".14"/>
+  <ellipse cx="735" cy="1115" rx="236" ry="74" fill="#0d1518" opacity=".3"/>
+  <path d="M560 807H865V1014C865 1082 810 1137 742 1137H683C615 1137 560 1082 560 1014Z" fill="#e5d7bc"/>
+  <path d="M865 864H910C962 864 992 889 992 931C992 979 958 1008 908 1008H865Z" fill="none" stroke="#e5d7bc" stroke-width="44"/>
+  <ellipse cx="712" cy="807" rx="152" ry="42" fill="#f0e4cc"/>
+  <ellipse cx="712" cy="808" rx="126" ry="27" fill="#51351f"/>
+  <path d="M645 758C626 706 664 674 648 620M703 755C684 709 721 674 707 632M762 758C746 716 776 688 769 651" fill="none" stroke="#ffe3b8" stroke-width="12" stroke-linecap="round" opacity=".38"/>
+  <rect x="221" y="1093" width="390" height="56" rx="26" fill="#e5d7bc" opacity=".92" transform="rotate(-4 221 1093)"/>
+  <rect x="252" y="1152" width="338" height="188" rx="15" fill="#f2ead7" transform="rotate(-4 252 1152)"/>
+  <path d="M293 1212H540M293 1260H508M293 1308H466" stroke="#30464a" stroke-width="9" stroke-linecap="round" opacity=".38"/>
+  <circle cx="1015" cy="1244" r="57" fill="#1a292c" opacity=".8"/>
+  <rect x="955" y="1301" width="120" height="22" rx="11" fill="#c8ae82" opacity=".22"/>
+  <path d="M92 1380C313 1329 621 1399 1092 1297" fill="none" stroke="#e7d4ab" stroke-width="2" opacity=".16"/>
+</svg>

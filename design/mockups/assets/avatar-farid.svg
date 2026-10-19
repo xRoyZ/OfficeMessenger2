@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Profilbild Farid Haddad">
+  <defs>
+    <linearGradient id="g" x1="18" y1="12" x2="235" y2="246" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3b5063"/>
+      <stop offset="1" stop-color="#a9bdce"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" fill="url(#g)"/>
+  <circle cx="212" cy="35" r="70" fill="#fff" opacity=".12"/>
+  <path d="M-24 221C64 152 171 207 280 111" fill="none" stroke="#fff" stroke-width="1.5" opacity=".24"/>
+  <path d="M-24 238C64 169 171 224 280 128" fill="none" stroke="#fff" stroke-width="1.5" opacity=".14"/>
+  <circle cx="49" cy="204" r="66" fill="#253746" opacity=".18"/>
+  <text x="128" y="151" text-anchor="middle" font-family="Aptos, Segoe UI, sans-serif" font-size="82" font-weight="600" letter-spacing="-3" fill="#f7fbff">FH</text>
+</svg>

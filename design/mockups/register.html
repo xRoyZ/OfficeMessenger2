@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="screen-route" content="/register">
+  <title>Konto erstellen — OfficeMessenger2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-body" data-page="register">
+<!-- serves: AC-01, AC-04, AC-28, AC-32 -->
+<div class="auth-shell">
+  <section class="auth-brand" aria-label="OfficeMessenger2">
+    <div class="auth-brand__top">
+      <a class="brandmark" href="login.html" aria-label="OfficeMessenger2 Startseite">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M6.4 9.2A6.2 6.2 0 0 1 12.6 3h7.2a6.2 6.2 0 0 1 6.2 6.2v5.7a6.2 6.2 0 0 1-6.2 6.2h-3.5l-5.7 4.3c-.9.7-2.1 0-2.1-1.1v-4.4a6.2 6.2 0 0 1-2.1-4.6Z" fill="currentColor"/>
+          <path d="M11.8 9.2h8.4M11.8 13.3h5.2" fill="none" stroke="#173f3a" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </a>
+      <div>
+        <div class="brand-word">OfficeMessenger <sup>2</sup></div>
+        <div class="eyebrow" style="margin-top:3px;">Intern. Direkt. Nah.</div>
+      </div>
+    </div>
+
+    <div class="auth-brand__copy">
+      <div class="eyebrow">Ein Konto. Das ganze Team.</div>
+      <h1>Ankommen, kurz vorstellen, mitreden.</h1>
+      <p>Erstelle dein Konto mit E-Mail, Anzeigename und Passwort. Danach findest du alle Kolleg:innen im Verzeichnis und kannst direkt ins Gespräch starten.</p>
+
+      <div class="auth-preview" aria-hidden="true">
+        <div class="auth-preview__head">
+          <img class="avatar avatar--sm" src="assets/avatar-greta.svg" alt="">
+          <div>
+            <div class="auth-preview__name">Greta Sommer</div>
+            <div class="auth-preview__meta">People &amp; Culture</div>
+          </div>
+        </div>
+        <div class="auth-preview__bubble">Willkommen im Team, Jonas! Wenn du Fragen hast, schreib einfach.</div>
+        <div class="auth-preview__bubble auth-preview__bubble--out">Danke! Ich schaue mich erst einmal in den Gruppen um.</div>
+      </div>
+    </div>
+
+    <div class="auth-brand__foot">
+      <span>OfficeMessenger2 · für Nordlicht Studio</span>
+      <div class="auth-brand__foot-links">
+        <a href="imprint.html">Impressum</a>
+        <a href="privacy.html">Datenschutz</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="auth-panel">
+    <div class="auth-panel__inner">
+      <div class="auth-panel__mobile-brand">
+        <span class="brandmark">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M6.4 9.2A6.2 6.2 0 0 1 12.6 3h7.2a6.2 6.2 0 0 1 6.2 6.2v5.7a6.2 6.2 0 0 1-6.2 6.2h-3.5l-5.7 4.3c-.9.7-2.1 0-2.1-1.1v-4.4a6.2 6.2 0 0 1-2.1-4.6Z" fill="currentColor"/>
+            <path d="M11.8 9.2h8.4M11.8 13.3h5.2" fill="none" stroke="#173f3a" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <div class="brand-word">OfficeMessenger <sup>2</sup></div>
+      </div>
+
+      <header class="auth-panel__head">
+        <div class="eyebrow">Neu im Team</div>
+        <h2>Konto erstellen</h2>
+        <p>Drei Angaben, dann bist du dabei. Deine E-Mail-Adresse siehst nur du in deinem Profil.</p>
+      </header>
+
+      <form class="auth-form" id="register-form" novalidate data-od-id="register-form">
+        <div class="field">
+          <label class="label" for="register-name">Anzeigename</label>
+          <input class="input" id="register-name" name="name" type="text" autocomplete="name" placeholder="Vor- und Nachname" required>
+          <div class="field__error" role="alert"><span></span></div>
+        </div>
+
+        <div class="field">
+          <label class="label" for="register-email">E-Mail-Adresse</label>
+          <input class="input" id="register-email" name="email" type="email" autocomplete="email" placeholder="name@nordlicht.studio" required>
+          <div class="field__error" role="alert"><span></span></div>
+          <div class="form-message form-message--error" id="register-email-error" role="alert">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label" for="register-password">Passwort</label>
+          <input class="input" id="register-password" name="password" type="password" autocomplete="new-password" placeholder="Mindestens 8 Zeichen" required>
+          <div class="field__hint">Mindestens 8 Zeichen. Verwende möglichst eine eigene Passphrase.</div>
+          <div class="field__error" role="alert"><span></span></div>
+        </div>
+
+        <div class="form-message form-message--error" id="register-error" role="alert">
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+          <span></span>
+        </div>
+
+        <button class="btn btn--primary btn--lg btn--block" type="submit" data-od-id="register-submit">Konto erstellen und anmelden</button>
+      </form>
+
+      <p class="auth-switch">Du hast schon ein Konto? <a href="login.html">Anmelden</a></p>
+
+      <div class="auth-legal">
+        <a href="imprint.html">Impressum</a>
+        <a href="privacy.html">Datenschutzerklärung</a>
+      </div>
+    </div>
+  </section>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

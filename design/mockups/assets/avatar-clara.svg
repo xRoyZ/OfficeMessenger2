@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Profilbild Clara Nguyen">
+  <defs>
+    <linearGradient id="g" x1="18" y1="12" x2="235" y2="246" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7c4036"/>
+      <stop offset="1" stop-color="#e2aa8d"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" fill="url(#g)"/>
+  <circle cx="217" cy="51" r="88" fill="#fff" opacity=".12"/>
+  <circle cx="34" cy="36" r="45" fill="#5d2b24" opacity=".25"/>
+  <path d="M-12 173C66 197 161 112 268 150" fill="none" stroke="#fff" stroke-width="1.5" opacity=".22"/>
+  <path d="M-12 190C66 214 161 129 268 167" fill="none" stroke="#fff" stroke-width="1.5" opacity=".13"/>
+  <text x="128" y="151" text-anchor="middle" font-family="Aptos, Segoe UI, sans-serif" font-size="82" font-weight="600" letter-spacing="-3" fill="#fff9f5">CN</text>
+</svg>

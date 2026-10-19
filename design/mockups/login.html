@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="screen-route" content="/login">
+  <title>Anmelden — OfficeMessenger2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-body" data-page="login">
+<!-- serves: AC-02, AC-03, AC-04, AC-28, AC-32 -->
+<div class="auth-shell">
+  <section class="auth-brand" aria-label="OfficeMessenger2">
+    <div class="auth-brand__top">
+      <a class="brandmark" href="login.html" aria-label="OfficeMessenger2 Startseite">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M6.4 9.2A6.2 6.2 0 0 1 12.6 3h7.2a6.2 6.2 0 0 1 6.2 6.2v5.7a6.2 6.2 0 0 1-6.2 6.2h-3.5l-5.7 4.3c-.9.7-2.1 0-2.1-1.1v-4.4a6.2 6.2 0 0 1-2.1-4.6Z" fill="currentColor"/>
+          <path d="M11.8 9.2h8.4M11.8 13.3h5.2" fill="none" stroke="#173f3a" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </a>
+      <div>
+        <div class="brand-word">OfficeMessenger <sup>2</sup></div>
+        <div class="eyebrow" style="margin-top:3px;">Intern. Direkt. Nah.</div>
+      </div>
+    </div>
+
+    <div class="auth-brand__copy">
+      <div class="eyebrow">Dein Team, an einem Ort</div>
+      <h1>Ein ruhiger Ort für die tägliche Zusammenarbeit.</h1>
+      <p>Direkte Gespräche, gemeinsame Gruppen und Momente aus dem Arbeitsalltag — ohne Umwege. Alles bleibt im Team.</p>
+
+      <div class="auth-preview" aria-hidden="true">
+        <div class="auth-preview__head">
+          <img class="avatar avatar--sm" src="assets/avatar-clara.svg" alt="">
+          <div>
+            <div class="auth-preview__name">Produkt &amp; Design</div>
+            <div class="auth-preview__meta">5 Mitglieder · jetzt</div>
+          </div>
+        </div>
+        <div class="auth-preview__bubble">Die neuen Screens liegen im Review. Schaut gern schon rein.</div>
+        <div class="auth-preview__bubble auth-preview__bubble--out">Mache ich. Der Status von heute Morgen ist stark.</div>
+      </div>
+    </div>
+
+    <div class="auth-brand__foot">
+      <span>OfficeMessenger2 · für Nordlicht Studio</span>
+      <div class="auth-brand__foot-links">
+        <a href="imprint.html">Impressum</a>
+        <a href="privacy.html">Datenschutz</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="auth-panel">
+    <div class="auth-panel__inner">
+      <div class="auth-panel__mobile-brand">
+        <span class="brandmark">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M6.4 9.2A6.2 6.2 0 0 1 12.6 3h7.2a6.2 6.2 0 0 1 6.2 6.2v5.7a6.2 6.2 0 0 1-6.2 6.2h-3.5l-5.7 4.3c-.9.7-2.1 0-2.1-1.1v-4.4a6.2 6.2 0 0 1-2.1-4.6Z" fill="currentColor"/>
+            <path d="M11.8 9.2h8.4M11.8 13.3h5.2" fill="none" stroke="#173f3a" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <div class="brand-word">OfficeMessenger <sup>2</sup></div>
+      </div>
+
+      <header class="auth-panel__head">
+        <div class="eyebrow">Willkommen zurück</div>
+        <h2>Schön, dass du da bist.</h2>
+        <p>Melde dich an, um mit deinem Team weiterzuschreiben.</p>
+      </header>
+
+      <div class="form-message form-message--success" id="login-success" role="status">
+        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+        <span></span>
+      </div>
+
+      <form class="auth-form" id="login-form" novalidate data-od-id="login-form">
+        <div class="field">
+          <label class="label" for="login-email">E-Mail-Adresse</label>
+          <input class="input" id="login-email" name="email" type="email" autocomplete="email" placeholder="name@nordlicht.studio" required>
+          <div class="field__error" role="alert"><span></span></div>
+        </div>
+
+        <div class="field">
+          <label class="label" for="login-password">Passwort</label>
+          <input class="input" id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Dein Passwort" required>
+          <div class="field__error" role="alert"><span></span></div>
+        </div>
+
+        <div class="form-message form-message--error" id="login-error" role="alert">
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+          <span></span>
+        </div>
+
+        <button class="btn btn--primary btn--lg btn--block" type="submit" data-od-id="login-submit">Anmelden</button>
+      </form>
+
+      <p class="auth-demo"><span>Demo-Zugang</span><code>anna@nordlicht.studio</code> · <code>office2</code></p>
+
+      <p class="auth-switch">Noch kein Konto? <a href="register.html">Konto erstellen</a></p>
+
+      <div class="auth-legal">
+        <a href="imprint.html">Impressum</a>
+        <a href="privacy.html">Datenschutzerklärung</a>
+      </div>
+    </div>
+  </section>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

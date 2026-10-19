@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="screen-route" content="/profile">
+  <title>Profil — OfficeMessenger2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="profile">
+<!-- serves: AC-02, AC-23, AC-24, AC-25, AC-26, AC-27, AC-30, AC-32 -->
+<div class="app">
+  <aside class="rail" aria-label="App-Navigation">
+    <a class="brandmark" href="chats.html" aria-label="OfficeMessenger2">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M6.4 9.2A6.2 6.2 0 0 1 12.6 3h7.2a6.2 6.2 0 0 1 6.2 6.2v5.7a6.2 6.2 0 0 1-6.2 6.2h-3.5l-5.7 4.3c-.9.7-2.1 0-2.1-1.1v-4.4a6.2 6.2 0 0 1-2.1-4.6Z" fill="currentColor"/>
+        <path d="M11.8 9.2h8.4M11.8 13.3h5.2" fill="none" stroke="#173f3a" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </a>
+    <nav class="rail-nav">
+      <a class="rail-link" href="chats.html" aria-label="Chats">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.4a7.4 7.4 0 0 1-7.4 7.4H8.2L4 22v-5.4a7.4 7.4 0 0 1 4.2-13.2h4.4A7.4 7.4 0 0 1 20 11.4Z"/><path d="M8 9.5h7M8 13h4.5"/></svg>
+        <span>Chats</span>
+      </a>
+      <a class="rail-link" href="contacts.html" aria-label="Kontakte">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.5-3.1 2.5-5 5.5-5s5 1.9 5.5 5"/><path d="M16 8.4a3 3 0 0 1 0 5.7M17 14c2.1.5 3.4 2.2 3.8 4.5"/></svg>
+        <span>Kontakte</span>
+      </a>
+      <a class="rail-link is-active" href="profile.html" aria-current="page" aria-label="Profil">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.6-3.7 3.2-6 7-6s6.4 2.3 7 6"/></svg>
+        <span>Profil</span>
+      </a>
+    </nav>
+    <div class="rail-spacer"></div>
+    <a class="rail-user" href="profile.html" aria-label="Eigenes Profil öffnen">
+      <img class="avatar avatar--md" src="assets/avatar-anna.svg" alt="Anna Weber">
+    </a>
+    <div class="rail-legal">
+      <a href="imprint.html">Impressum</a>
+      <a href="privacy.html">Datenschutz</a>
+    </div>
+  </aside>
+
+  <main class="app-main">
+    <div class="page">
+      <header class="page-header" data-od-id="profile-header">
+        <div class="page-header__copy">
+          <div class="eyebrow">Konto · Anna Weber</div>
+          <h1>Profil</h1>
+          <p class="page-subtitle">So sehen dich deine Kolleg:innen im Messenger. Änderungen sind sofort für das Team sichtbar.</p>
+        </div>
+        <div class="page-actions">
+          <a class="btn btn--outline" href="chats.html">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
+            Zu den Chats
+          </a>
+        </div>
+      </header>
+
+      <div class="settings-layout">
+        <aside class="profile-card" aria-labelledby="profile-card-name" data-od-id="profile-card">
+          <div class="profile-card__top">
+            <div class="profile-card__avatar">
+              <img class="avatar avatar--xxl" src="assets/avatar-anna.svg" alt="Profilbild von Anna Weber" id="profile-card-avatar">
+              <span class="badge">Online</span>
+            </div>
+            <div>
+              <h2 id="profile-card-name" data-profile-name>Anna Weber</h2>
+              <div class="profile-card__handle">@anna.weber · Nordlicht Studio</div>
+            </div>
+          </div>
+          <p class="profile-card__quote" data-profile-info>Produktdesign bei Nordlicht Studio. Ich mag klare Screens, gute Fragen und Kaffee um zehn.</p>
+          <div class="profile-card__foot">
+            <span class="badge">Produktdesign</span>
+            <span class="badge">Nordlicht Studio</span>
+            <span class="badge">Dabei seit 2024</span>
+          </div>
+        </aside>
+
+        <div class="settings-stack">
+          <section class="settings-card" aria-labelledby="avatar-heading" data-od-id="profile-avatar-card">
+            <div class="settings-card__head">
+              <h2 id="avatar-heading">Profilbild</h2>
+              <p>Ein klares Gesicht hilft im Team. Dein Bild ersetzt die Initialen überall im Messenger.</p>
+            </div>
+            <div class="avatar-editor">
+              <img class="avatar avatar--lg" src="assets/avatar-anna.svg" alt="Aktuelles Profilbild" id="profile-avatar">
+              <div class="avatar-editor__body">
+                <div class="avatar-editor__title">Dein Profilbild</div>
+                <p class="avatar-editor__hint">JPEG, PNG oder WebP · maximal 5 MB</p>
+                <label class="btn btn--sm btn--outline" for="profile-avatar-input">Bild auswählen</label>
+                <input id="profile-avatar-input" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+              </div>
+            </div>
+            <div class="form-message form-message--error" id="profile-avatar-error" role="alert">
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></svg>
+              <span></span>
+            </div>
+          </section>
+
+          <section class="settings-card" aria-labelledby="profile-data-heading" data-od-id="profile-data-card">
+            <div class="settings-card__head">
+              <h2 id="profile-data-heading">Profildaten</h2>
+              <p>Name und Statustext werden in Chats, Kontakten und im Profil angezeigt.</p>
+            </div>
+            <form class="form-stack" id="profile-form" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label class="label" for="profile-name">Anzeigename</label>
+                  <input class="input" id="profile-name" type="text" value="Anna Weber" maxlength="60" autocomplete="name">
+                  <div class="field__error" id="profile-name-error">
+                    <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></svg>
+                    <span>Bitte gib einen Anzeigenamen ein.</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label" for="profile-email">E-Mail-Adresse</label>
+                  <input class="input" id="profile-email" type="email" value="anna@nordlicht.studio" readonly>
+                  <div class="field__hint">Die E-Mail-Adresse ist mit deinem Konto verknüpft.</div>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label" for="profile-info">Statustext</label>
+                <textarea class="textarea" id="profile-info" maxlength="160">Produktdesign bei Nordlicht Studio. Ich mag klare Screens, gute Fragen und Kaffee um zehn.</textarea>
+                <div class="field__hint">Bis zu 160 Zeichen. Erscheint unter deinem Namen im Profil.</div>
+              </div>
+              <div class="form-message form-message--success" id="profile-success" role="status">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+                <span></span>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn--primary" type="submit">Profil speichern</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="settings-card" aria-labelledby="password-heading" data-od-id="profile-password-card">
+            <div class="settings-card__head">
+              <h2 id="password-heading">Passwort ändern</h2>
+              <p>Das neue Passwort muss mindestens 8 Zeichen lang sein.</p>
+            </div>
+            <form class="form-stack" id="password-form" novalidate>
+              <div class="field">
+                <label class="label" for="password-current">Aktuelles Passwort</label>
+                <input class="input" id="password-current" type="password" autocomplete="current-password">
+                <div class="field__error">
+                  <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></svg>
+                  <span>Bitte gib dein aktuelles Passwort ein.</span>
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="field">
+                  <label class="label" for="password-new">Neues Passwort</label>
+                  <input class="input" id="password-new" type="password" autocomplete="new-password">
+                  <div class="field__error">
+                    <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></svg>
+                    <span>Das neue Passwort muss mindestens 8 Zeichen lang sein.</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label" for="password-repeat">Neues Passwort wiederholen</label>
+                  <input class="input" id="password-repeat" type="password" autocomplete="new-password">
+                  <div class="field__error">
+                    <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></svg>
+                    <span>Die Passwörter stimmen nicht überein.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-message form-message--success" id="password-message" role="status">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+                <span></span>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn--outline" type="submit">Passwort ändern</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="settings-card danger-zone" aria-labelledby="delete-heading" data-od-id="profile-delete-card">
+            <div class="settings-card__head">
+              <h3 id="delete-heading">Konto löschen</h3>
+              <p>Dein Konto, deine Profildaten und deine Statusbilder werden dauerhaft entfernt.</p>
+            </div>
+            <div class="danger-row">
+              <div>
+                <div class="avatar-editor__title">Konto endgültig löschen</div>
+                <p>Du wirst abgemeldet. Deine Nachrichten bleiben für das Team sichtbar.</p>
+              </div>
+              <button class="btn btn--sm btn--danger" type="button" data-open-dialog="delete-account-dialog">Konto löschen</button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <footer class="legal-bar">
+      <span>OfficeMessenger2 · internes Büro</span>
+      <div class="legal-bar__links">
+        <a href="imprint.html">Impressum</a>
+        <a href="privacy.html">Datenschutzerklärung</a>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<dialog class="dialog" id="delete-account-dialog" aria-labelledby="delete-account-title">
+  <form class="dialog__panel" id="delete-account-form">
+    <div class="dialog__head">
+      <div>
+        <h2 id="delete-account-title">Konto löschen?</h2>
+        <p>Diese Aktion kann nicht rückgängig gemacht werden.</p>
+      </div>
+      <button class="btn btn--icon btn--sm btn--ghost" type="button" data-close-dialog aria-label="Dialog schließen">
+        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="dialog__body">
+      <div class="dialog__warn">
+        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></svg>
+        <span>Dein Profil, deine Statusbilder und deine Anmeldung werden gelöscht. Deine Nachrichten bleiben für die anderen Mitglieder sichtbar.</span>
+      </div>
+    </div>
+    <div class="dialog__actions">
+      <button class="btn btn--ghost" type="button" data-close-dialog>Abbrechen</button>
+      <button class="btn btn--danger" type="submit">Konto endgültig löschen</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>

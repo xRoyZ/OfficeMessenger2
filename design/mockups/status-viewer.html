@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="screen-route" content="/status-viewer">
+  <title>Status von Clara Nguyen — OfficeMessenger2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="viewer-body" data-page="status-viewer">
+<!-- serves: AC-08, AC-20, AC-23, AC-32 -->
+<div class="viewer-shell viewer-shell--with-panel">
+  <section class="viewer-stage" data-viewer-stage data-person="clara" data-close-href="chats.html" aria-label="Statusanzeige">
+    <img class="viewer-stage__image" id="viewer-image" src="assets/status-focus.svg" alt="Statusbild von Clara Nguyen: Schreibtisch im Morgenlicht" data-od-id="status-viewer-image">
+    <div class="viewer-stage__scrim"></div>
+
+    <div class="viewer-top">
+      <div class="viewer-progress" aria-hidden="true">
+        <div class="viewer-progress__seg is-active" data-viewer-segment><span class="viewer-progress__fill"></span></div>
+        <div class="viewer-progress__seg" data-viewer-segment><span class="viewer-progress__fill"></span></div>
+      </div>
+      <div class="viewer-person">
+        <img class="avatar avatar--md" src="assets/avatar-clara.svg" alt="" data-viewer-avatar>
+        <div class="viewer-person__body">
+          <div class="viewer-person__name" data-viewer-name>Clara Nguyen</div>
+          <div class="viewer-person__time" data-viewer-sub>vor 45 Min. · Brand &amp; Content</div>
+        </div>
+        <button class="viewer-close" type="button" data-viewer-close aria-label="Status schließen">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="viewer-caption">
+      <h1 id="viewer-caption" aria-live="polite">Fokusmodus — bitte nicht stören.</h1>
+      <p>Status von <span data-viewer-name>Clara Nguyen</span> · verschwindet nach 24 Stunden</p>
+    </div>
+
+    <div class="viewer-nav">
+      <span class="viewer-nav__hint">Weiter tippen</span>
+      <button class="viewer-nav__button" type="button" data-viewer-next aria-label="Nächster Status">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+      </button>
+    </div>
+
+    <div class="viewer-legal">
+      <a href="imprint.html">Impressum</a>
+      <a href="privacy.html">Datenschutz</a>
+    </div>
+  </section>
+
+  <aside class="viewer-panel" aria-labelledby="viewer-panel-heading">
+    <div class="viewer-panel__head">
+      <div class="eyebrow">Status · 24 Stunden</div>
+      <h2 id="viewer-panel-heading" data-viewer-panel-name>Clara Nguyen</h2>
+      <p data-viewer-panel-sub>2 Bilder · vor 45 Minuten geteilt</p>
+    </div>
+
+    <div class="viewer-panel__count">Status im Team</div>
+    <ul class="viewer-list">
+      <li class="viewer-list__item is-active" data-viewer-status-item data-person="clara">
+        <a class="viewer-list__link" href="status-viewer.html?person=clara" aria-label="Status von Clara Nguyen ansehen">
+          <img class="avatar avatar--sm" src="assets/avatar-clara.svg" alt="">
+          <span class="viewer-list__body"><span class="viewer-list__name">Clara Nguyen</span><span class="viewer-list__time">vor 45 Min.</span></span>
+          <span class="viewer-list__check" data-viewer-current><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></span>
+        </a>
+      </li>
+      <li class="viewer-list__item" data-viewer-status-item data-person="ben">
+        <a class="viewer-list__link" href="status-viewer.html?person=ben" aria-label="Status von Ben Osei ansehen">
+          <img class="avatar avatar--sm" src="assets/avatar-ben.svg" alt="">
+          <span class="viewer-list__body"><span class="viewer-list__name">Ben Osei</span><span class="viewer-list__time">vor 3 Std.</span></span>
+          <span class="viewer-list__check" data-viewer-current hidden><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></span>
+        </a>
+      </li>
+      <li class="viewer-list__item" data-viewer-status-item data-person="elif">
+        <a class="viewer-list__link" href="status-viewer.html?person=elif" aria-label="Status von Elif Yilmaz ansehen">
+          <img class="avatar avatar--sm" src="assets/avatar-elif.svg" alt="">
+          <span class="viewer-list__body"><span class="viewer-list__name">Elif Yilmaz</span><span class="viewer-list__time">vor 5 Std.</span></span>
+          <span class="viewer-list__check" data-viewer-current hidden><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></span>
+        </a>
+      </li>
+      <li class="viewer-list__item" data-viewer-status-item data-person="farid">
+        <a class="viewer-list__link" href="status-viewer.html?person=farid" aria-label="Status von Farid Haddad ansehen">
+          <img class="avatar avatar--sm" src="assets/avatar-farid.svg" alt="">
+          <span class="viewer-list__body"><span class="viewer-list__name">Farid Haddad</span><span class="viewer-list__time">vor 7 Std.</span></span>
+          <span class="viewer-list__check" data-viewer-current hidden><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="viewer-panel__foot">
+      <div class="viewer-panel__expiry">
+        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5l3 2"/></svg>
+        <span data-viewer-expiry>Verschwindet in 23 Stunden</span>
+      </div>
+      <div class="viewer-panel__legal">
+        <a href="imprint.html">Impressum</a>
+        <a href="privacy.html">Datenschutzerklärung</a>
+      </div>
+    </div>
+  </aside>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

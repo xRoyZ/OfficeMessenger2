@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Gruppenbild">
+  <defs>
+    <linearGradient id="g" x1="18" y1="14" x2="496" y2="498" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#243b53"/>
+      <stop offset=".6" stop-color="#4b6f8a"/>
+      <stop offset="1" stop-color="#c9dbe4"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#g)"/>
+  <circle cx="412" cy="104" r="162" fill="#fff" opacity=".09"/>
+  <circle cx="94" cy="432" r="124" fill="#10273a" opacity=".22"/>
+  <path d="M62 356C168 276 312 274 460 184" fill="none" stroke="#fff" stroke-width="2" opacity=".16"/>
+  <circle cx="256" cy="202" r="58" fill="#f6fbff" opacity=".9"/>
+  <path d="M158 352c8-58 46-92 98-92s90 34 98 92Z" fill="#f6fbff" opacity=".9"/>
+  <circle cx="150" cy="238" r="39" fill="#dbeaf2" opacity=".72"/>
+  <path d="M88 342c5-38 28-60 62-60s57 22 62 60Z" fill="#dbeaf2" opacity=".72"/>
+  <circle cx="362" cy="238" r="39" fill="#dbeaf2" opacity=".72"/>
+  <path d="M300 342c5-38 28-60 62-60s57 22 62 60Z" fill="#dbeaf2" opacity=".72"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Gruppenfoto Orga-Team">
+  <defs>
+    <linearGradient id="g" x1="34" y1="20" x2="486" y2="495" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#644729"/>
+      <stop offset=".6" stop-color="#b07a45"/>
+      <stop offset="1" stop-color="#efd7ae"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#g)"/>
+  <circle cx="426" cy="416" r="178" fill="#fff" opacity=".1"/>
+  <circle cx="88" cy="75" r="109" fill="#4d2e18" opacity=".21"/>
+  <path d="M18 165C139 243 287 188 499 319" fill="none" stroke="#fff" stroke-width="2" opacity=".18"/>
+  <path d="M-12 209C124 288 284 240 519 371" fill="none" stroke="#fff" stroke-width="2" opacity=".11"/>
+  <circle cx="151" cy="203" r="67" fill="#fff" opacity=".14"/>
+  <circle cx="280" cy="279" r="111" fill="#4c2b14" opacity=".2"/>
+  <text x="280" y="306" text-anchor="middle" font-family="Aptos, Segoe UI, sans-serif" font-size="96" font-weight="600" letter-spacing="-6" fill="#fff9ef">O</text>
+</svg>

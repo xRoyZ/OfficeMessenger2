@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="screen-route" content="/chats">
+  <title>Chats — OfficeMessenger2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="chats">
+<!-- serves: AC-02, AC-09, AC-11, AC-12, AC-16, AC-17, AC-19, AC-23, AC-32 -->
+<div class="app">
+  <aside class="rail" aria-label="App-Navigation">
+    <a class="brandmark" href="chats.html" aria-label="OfficeMessenger2">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M6.4 9.2A6.2 6.2 0 0 1 12.6 3h7.2a6.2 6.2 0 0 1 6.2 6.2v5.7a6.2 6.2 0 0 1-6.2 6.2h-3.5l-5.7 4.3c-.9.7-2.1 0-2.1-1.1v-4.4a6.2 6.2 0 0 1-2.1-4.6Z" fill="currentColor"/>
+        <path d="M11.8 9.2h8.4M11.8 13.3h5.2" fill="none" stroke="#173f3a" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </a>
+    <nav class="rail-nav">
+      <a class="rail-link is-active" href="chats.html" aria-current="page" aria-label="Chats">
+        <span class="rail-link__dot"></span>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.4a7.4 7.4 0 0 1-7.4 7.4H8.2L4 22v-5.4a7.4 7.4 0 0 1 4.2-13.2h4.4A7.4 7.4 0 0 1 20 11.4Z"/><path d="M8 9.5h7M8 13h4.5"/></svg>
+        <span>Chats</span>
+      </a>
+      <a class="rail-link" href="contacts.html" aria-label="Kontakte">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.5-3.1 2.5-5 5.5-5s5 1.9 5.5 5"/><path d="M16 8.4a3 3 0 0 1 0 5.7M17 14c2.1.5 3.4 2.2 3.8 4.5"/></svg>
+        <span>Kontakte</span>
+      </a>
+      <a class="rail-link" href="profile.html" aria-label="Profil">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.6-3.7 3.2-6 7-6s6.4 2.3 7 6"/></svg>
+        <span>Profil</span>
+      </a>
+    </nav>
+    <div class="rail-spacer"></div>
+    <a class="rail-user" href="profile.html" aria-label="Eigenes Profil öffnen">
+      <img class="avatar avatar--md" src="assets/avatar-anna.svg" alt="Anna Weber">
+    </a>
+    <div class="rail-legal">
+      <a href="imprint.html">Impressum</a>
+      <a href="privacy.html">Datenschutz</a>
+    </div>
+  </aside>
+
+  <main class="app-main">
+    <div class="page">
+      <header class="page-header" data-od-id="chats-header">
+        <div class="page-header__copy">
+          <div class="eyebrow">Postfach · Anna Weber</div>
+          <div class="page-title">
+            <h1>Chats</h1>
+            <span class="count" id="unread-total">6</span>
+          </div>
+          <p class="page-subtitle">Alles, was heute im Team passiert — und die Bilder, die den Tag festhalten.</p>
+        </div>
+        <div class="page-actions">
+          <a class="btn btn--primary" href="new-group.html" data-od-id="new-group-button">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            Neue Gruppe
+          </a>
+        </div>
+      </header>
+
+      <section class="status-card" aria-labelledby="status-heading" data-od-id="status-strip">
+        <div class="status-card__head">
+          <div class="status-card__title" id="status-heading">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5l3 2"/></svg>
+            Status
+          </div>
+          <span class="eyebrow">Verschwindet nach 24 Std.</span>
+        </div>
+        <div class="status-rail">
+          <a class="status-item status-item--self" href="status-create.html" aria-label="Eigenen Status hinzufügen">
+            <span class="status-ring">
+              <span class="status-ring__inner"></span>
+              <span class="status-item__add"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
+            </span>
+            <span class="status-item__name">Mein Status</span>
+            <span class="status-item__time">Hinzufügen</span>
+          </a>
+          <a class="status-item" href="status-viewer.html?person=clara" data-status-person="clara" aria-label="Status von Clara Nguyen ansehen">
+            <span class="status-ring"><span class="status-ring__inner"><img class="avatar" src="assets/avatar-clara.svg" alt=""></span></span>
+            <span class="status-item__name">Clara</span>
+            <span class="status-item__time">vor 45 Min.</span>
+          </a>
+          <a class="status-item" href="status-viewer.html?person=ben" data-status-person="ben" aria-label="Status von Ben Osei ansehen">
+            <span class="status-ring"><span class="status-ring__inner"><img class="avatar" src="assets/avatar-ben.svg" alt=""></span></span>
+            <span class="status-item__name">Ben</span>
+            <span class="status-item__time">vor 3 Std.</span>
+          </a>
+          <a class="status-item" href="status-viewer.html?person=elif" data-status-person="elif" aria-label="Status von Elif Yilmaz ansehen">
+            <span class="status-ring"><span class="status-ring__inner"><img class="avatar" src="assets/avatar-elif.svg" alt=""></span></span>
+            <span class="status-item__name">Elif</span>
+            <span class="status-item__time">vor 5 Std.</span>
+          </a>
+          <a class="status-item" href="status-viewer.html?person=farid" data-status-person="farid" aria-label="Status von Farid Haddad ansehen">
+            <span class="status-ring"><span class="status-ring__inner"><img class="avatar" src="assets/avatar-farid.svg" alt=""></span></span>
+            <span class="status-item__name">Farid</span>
+            <span class="status-item__time">vor 7 Std.</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="inbox-toolbar" aria-label="Chats filtern" data-od-id="chat-toolbar">
+        <div class="search">
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg>
+          <label class="sr-only" for="chat-search">Chats und Kontakte suchen</label>
+          <input class="input" id="chat-search" type="search" placeholder="Chats und Kontakte suchen …" autocomplete="off">
+        </div>
+        <div class="filter-bar" role="group" aria-label="Chats nach Art filtern">
+          <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">Alle <span class="filter-chip__count">7</span></button>
+          <button class="filter-chip" type="button" data-filter="unread" aria-pressed="false">Ungelesen <span class="filter-chip__count">3</span></button>
+          <button class="filter-chip" type="button" data-filter="groups" aria-pressed="false">Gruppen <span class="filter-chip__count">2</span></button>
+          <button class="filter-chip" type="button" data-filter="direct" aria-pressed="false">Direkt <span class="filter-chip__count">5</span></button>
+        </div>
+      </section>
+
+      <section class="inbox-list" id="chat-list" aria-label="Chatliste" data-od-id="chat-list">
+        <div class="chat-list">
+          <a class="chat-row is-unread" href="group-chat.html" data-chat-item data-chat-id="produkt-design" data-kind="group" data-unread="3" data-name="Produkt &amp; Design" data-preview="Clara: Die neuen Screens liegen im Review.">
+            <img class="avatar avatar--md" src="assets/group-product.svg" alt="">
+            <div class="chat-row__body">
+              <div class="chat-row__top">
+                <span class="chat-row__name">Produkt &amp; Design</span>
+                <span class="chat-row__time">09:42</span>
+              </div>
+              <div class="chat-row__preview">
+                <span>Clara: Die neuen Screens liegen im Review.</span>
+              </div>
+            </div>
+            <div class="chat-row__meta">
+              <span class="count">3</span>
+              <span class="chat-row__kind">Gruppe</span>
+            </div>
+          </a>
+
+          <a class="chat-row is-unread" href="direct-chat.html" data-chat-item data-chat-id="ben" data-kind="direct" data-unread="2" data-name="Ben Osei" data-preview="Danke, ich schaue nach dem Call drüber.">
+            <img class="avatar avatar--md" src="assets/avatar-ben.svg" alt="">
+            <div class="chat-row__body">
+              <div class="chat-row__top">
+                <span class="chat-row__name">Ben Osei</span>
+                <span class="chat-row__time">09:18</span>
+              </div>
+              <div class="chat-row__preview">
+                <span>Danke, ich schaue nach dem Call drüber.</span>
+              </div>
+            </div>
+            <div class="chat-row__meta">
+              <span class="count">2</span>
+              <span class="chat-row__kind">Direkt</span>
+            </div>
+          </a>
+
+          <a class="chat-row" href="group-chat.html?group=orga" data-chat-item data-chat-id="orga" data-kind="group" data-unread="0" data-name="Orga-Team" data-preview="Anna: Kurzer Check fürs Offsite?">
+            <img class="avatar avatar--md" src="assets/group-ops.svg" alt="">
+            <div class="chat-row__body">
+              <div class="chat-row__top">
+                <span class="chat-row__name">Orga-Team</span>
+                <span class="chat-row__time">Gestern</span>
+              </div>
+              <div class="chat-row__preview">
+                <span>Anna: Kurzer Check fürs Offsite?</span>
+              </div>
+            </div>
+            <div class="chat-row__meta">
+              <span class="chat-row__kind">Gruppe</span>
+            </div>
+          </a>
+
+          <a class="chat-row is-unread" href="direct-chat.html?person=elif" data-chat-item data-chat-id="elif" data-kind="direct" data-unread="1" data-name="Elif Yilmaz" data-preview="Können wir den Termin auf 14:30 schieben?">
+            <img class="avatar avatar--md" src="assets/avatar-elif.svg" alt="">
+            <div class="chat-row__body">
+              <div class="chat-row__top">
+                <span class="chat-row__name">Elif Yilmaz</span>
+                <span class="chat-row__time">Gestern</span>
+              </div>
+              <div class="chat-row__preview">
+                <span>Können wir den Termin auf 14:30 schieben?</span>
+              </div>
+            </div>
+            <div class="chat-row__meta">
+              <span class="count">1</span>
+              <span class="chat-row__kind">Direkt</span>
+            </div>
+          </a>
+
+          <a class="chat-row" href="direct-chat.html?person=clara" data-chat-item data-chat-id="clara" data-kind="direct" data-unread="0" data-name="Clara Nguyen" data-preview="Hier ist die finale Copy für den Status.">
+            <img class="avatar avatar--md" src="assets/avatar-clara.svg" alt="">
+            <div class="chat-row__body">
+              <div class="chat-row__top">
+                <span class="chat-row__name">Clara Nguyen</span>
+                <span class="chat-row__time">Mo</span>
+              </div>
+              <div class="chat-row__preview">
+                <span>Hier ist die finale Copy für den Status.</span>
+              </div>
+            </div>
+            <div class="chat-row__meta">
+              <span class="chat-row__kind">Direkt</span>
+            </div>
+          </a>
+
+          <a class="chat-row" href="direct-chat.html?person=farid" data-chat-item data-chat-id="farid" data-kind="direct" data-unread="0" data-name="Farid Haddad" data-preview="Die Auswertung ist fertig.">
+            <img class="avatar avatar--md" src="assets/avatar-farid.svg" alt="">
+            <div class="chat-row__body">
+              <div class="chat-row__top">
+                <span class="chat-row__name">Farid Haddad</span>
+                <span class="chat-row__time">Fr</span>
+              </div>
+              <div class="chat-row__preview">
+                <span>Die Auswertung ist fertig.</span>
+              </div>
+            </div>
+            <div class="chat-row__meta">
+              <span class="chat-row__kind">Direkt</span>
+            </div>
+          </a>
+
+          <a class="chat-row" href="direct-chat.html?person=greta" data-chat-item data-chat-id="greta" data-kind="direct" data-unread="0" data-name="Greta Sommer" data-preview="Willkommen im Team, Jonas!">
+            <img class="avatar avatar--md" src="assets/avatar-greta.svg" alt="">
+            <div class="chat-row__body">
+              <div class="chat-row__top">
+                <span class="chat-row__name">Greta Sommer</span>
+                <span class="chat-row__time">Do</span>
+              </div>
+              <div class="chat-row__preview">
+                <span>Willkommen im Team, Jonas!</span>
+              </div>
+            </div>
+            <div class="chat-row__meta">
+              <span class="chat-row__kind">Direkt</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="empty-state" id="chat-empty" hidden>
+          <div class="empty-state__mark">
+            <svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg>
+          </div>
+          <h3>Nichts gefunden</h3>
+          <p>Kein Chat und keine Kontaktperson passt zu deiner Suche.</p>
+        </div>
+      </section>
+
+      <section class="search-results" id="contact-results" aria-label="Gefundene Kontakte" hidden>
+        <div class="search-results__head">
+          <span class="eyebrow">Kontakte</span>
+          <span class="eyebrow">Chat öffnen</span>
+        </div>
+        <a class="contact-row" href="direct-chat.html?person=ben" data-contact-result data-contact-name="Ben Osei">
+          <img class="avatar avatar--sm" src="assets/avatar-ben.svg" alt="">
+          <span class="contact-row__body"><span class="contact-row__name">Ben Osei</span><span class="contact-row__info">Engineering</span></span>
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+        </a>
+        <a class="contact-row" href="direct-chat.html?person=clara" data-contact-result data-contact-name="Clara Nguyen">
+          <img class="avatar avatar--sm" src="assets/avatar-clara.svg" alt="">
+          <span class="contact-row__body"><span class="contact-row__name">Clara Nguyen</span><span class="contact-row__info">Brand &amp; Content</span></span>
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+        </a>
+        <a class="contact-row" href="direct-chat.html?person=david" data-contact-result data-contact-name="David Klein">
+          <img class="avatar avatar--sm" src="assets/avatar-david.svg" alt="">
+          <span class="contact-row__body"><span class="contact-row__name">David Klein</span><span class="contact-row__info">Operations</span></span>
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+        </a>
+        <a class="contact-row" href="direct-chat.html?person=elif" data-contact-result data-contact-name="Elif Yilmaz">
+          <img class="avatar avatar--sm" src="assets/avatar-elif.svg" alt="">
+          <span class="contact-row__body"><span class="contact-row__name">Elif Yilmaz</span><span class="contact-row__info">Produktmanagement</span></span>
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+        </a>
+        <a class="contact-row" href="direct-chat.html?person=farid" data-contact-result data-contact-name="Farid Haddad">
+          <img class="avatar avatar--sm" src="assets/avatar-farid.svg" alt="">
+          <span class="contact-row__body"><span class="contact-row__name">Farid Haddad</span><span class="contact-row__info">Data</span></span>
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+        </a>
+        <a class="contact-row" href="direct-chat.html?person=greta" data-contact-result data-contact-name="Greta Sommer">
+          <img class="avatar avatar--sm" src="assets/avatar-greta.svg" alt="">
+          <span class="contact-row__body"><span class="contact-row__name">Greta Sommer</span><span class="contact-row__info">People &amp; Culture</span></span>
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+        </a>
+        <a class="contact-row" href="direct-chat.html?person=jonas" data-contact-result data-contact-name="Jonas Petri">
+          <img class="avatar avatar--sm" src="assets/avatar-jonas.svg" alt="">
+          <span class="contact-row__body"><span class="contact-row__name">Jonas Petri</span><span class="contact-row__info">QA</span></span>
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+        </a>
+      </section>
+    </div>
+
+    <footer class="legal-bar">
+      <span>OfficeMessenger2 · internes Büro</span>
+      <div class="legal-bar__links">
+        <a href="imprint.html">Impressum</a>
+        <a href="privacy.html">Datenschutzerklärung</a>
+      </div>
+    </footer>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

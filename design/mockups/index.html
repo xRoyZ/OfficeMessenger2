@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="screen-route" content="/">
+  <title>OfficeMessenger2 — Screens</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="index-body">
+<!-- serves: AC-01, AC-02, AC-04, AC-23, AC-32 -->
+<header class="index-top">
+  <a class="index-brand" href="index.html">
+    <span class="brandmark" aria-hidden="true">
+      <svg viewBox="0 0 32 32">
+        <path d="M6.4 9.2A6.2 6.2 0 0 1 12.6 3h7.2a6.2 6.2 0 0 1 6.2 6.2v5.7a6.2 6.2 0 0 1-6.2 6.2h-3.5l-5.7 4.3c-.9.7-2.1 0-2.1-1.1v-4.4a6.2 6.2 0 0 1-2.1-4.6Z" fill="currentColor"/>
+        <path d="M11.8 9.2h8.4M11.8 13.3h5.2" fill="none" stroke="#173f3a" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </span>
+    <span class="brand-word">OfficeMessenger<sup>2</sup></span>
+  </a>
+  <div class="row gap-2">
+    <a class="btn btn--sm btn--ghost" href="imprint.html">Impressum</a>
+    <a class="btn btn--sm btn--ghost" href="privacy.html">Datenschutz</a>
+    <a class="btn btn--sm btn--primary" href="login.html">Anmelden</a>
+  </div>
+</header>
+
+<main>
+  <section class="index-hero">
+    <div class="index-hero__card">
+      <div class="index-hero__content">
+        <div class="eyebrow" style="color:oklch(100% 0 0 / .55);">Interner Messenger · Nordlicht Studio</div>
+        <h1>Alle Screens.<br>Ein Gespräch.</h1>
+        <p>OfficeMessenger2 bringt Chats, Kontakte, Statusbilder und Gruppenverwaltung in eine ruhige Oberfläche. Diese Sammlung zeigt den vollständigen Ablauf vom Login bis zur Datenschutzerklärung — klickbar, offline und in Deutsch.</p>
+        <div class="index-hero__meta">
+          <span class="badge">14 Screens</span>
+          <span class="badge">Offline-fähig</span>
+          <span class="badge">Ab 360 px</span>
+          <span class="badge">Demo: anna@nordlicht.studio · office2</span>
+        </div>
+        <div class="index-hero__actions">
+          <a class="btn btn--primary" href="chats.html">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.4a7.4 7.4 0 0 1-7.4 7.4H8.2L4 22v-5.4a7.4 7.4 0 0 1 4.2-13.2h4.4A7.4 7.4 0 0 1 20 11.4Z"/></svg>
+            Chats öffnen
+          </a>
+          <a class="btn btn--outline" href="login.html">Mit Login starten</a>
+        </div>
+      </div>
+
+      <div class="index-hero__aside" aria-hidden="true">
+        <div class="index-screen-card">
+          <div class="index-screen-card__head">
+            <span class="index-screen-card__dot"></span>
+            <span class="index-screen-card__title">Produkt &amp; Design</span>
+            <span class="count" style="margin-left:auto;">3</span>
+          </div>
+          <div class="index-screen-card__row">
+            <span class="avatar avatar--sm" style="background:oklch(100% 0 0 / .14);"></span>
+            <span class="index-screen-card__line"></span>
+          </div>
+          <div class="index-screen-card__bubble">Die neuen Screens liegen im Review.</div>
+          <div class="index-screen-card__bubble index-screen-card__bubble--out">Ich schaue nach dem Call drüber.</div>
+          <div class="index-screen-card__row">
+            <span class="index-screen-card__line"></span>
+            <span class="index-screen-card__line index-screen-card__line--short"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="index-section" aria-labelledby="screens-heading">
+    <div class="index-section__head">
+      <div>
+        <div class="eyebrow">Screens</div>
+        <h2 id="screens-heading" style="margin-top:6px;">Vom Einstieg bis zum Gruppenchat</h2>
+        <p>Jeder Screen ist eigenständig, nutzt dasselbe Designsystem und lässt sich direkt öffnen.</p>
+      </div>
+      <span class="badge badge--outline">14 Routen</span>
+    </div>
+
+    <div class="screen-grid">
+      <a class="screen-card" href="login.html">
+        <div class="screen-card__top"><span class="screen-card__num">01</span><span class="screen-card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"/><path d="M10 8l4 4-4 4M14 12H4"/></svg></span></div>
+        <h3>Login</h3>
+        <p>Anmeldung mit Demo-Konto, Fehlerzustand und Link zur Kontoerstellung.</p>
+        <span class="screen-card__route">/login</span>
+      </a>
+      <a class="screen-card" href="register.html">
+        <div class="screen-card__top"><span class="screen-card__num">02</span><span class="screen-card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.5-3.1 2.5-5 5.5-5s5 1.9 5.5 5"/><path d="M18 8v6M15 11h6"/></svg></span></div>
+        <h3>Registrieren</h3>
+        <p>Neues Konto anlegen, doppelte E-Mail erkennen, Passwort prüfen.</p>
+        <span class="screen-card__route">/register</span>
+      </a>
+      <a class="screen-card" href="chats.html">
+        <div class="screen-card__top"><span class="screen-card__num">03</span><span class="screen-card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.4a7.4 7.4 0 0 1-7.4 7.4H8.2L4 22v-5.4a7.4 7.4 0 0 1 4.2-13.2h4.4A7.4 7.4 0 0 1 20 11.4Z"/><path d="M8 9.5h7M8 13h4.5"/></svg></span></div>
+        <h3>Chats</h3>
+        <p>Statusleiste, Suche, Filter-Chips und die vollständige Chatliste.</p>
+        <span class="screen-card__route">/chats</span>
+      </a>
+      <a class="screen-card" href="contacts.html">
+        <div class="screen-card__top"><span class="screen-card__num">04</span><span class="screen-card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.5-3.1 2.5-5 5.5-5s5 1.9 5.5 5"/><path d="M16 8.4a3 3 0 0 1 0 5.7M17 14c2.1.5 3.4 2.2 3.8 4.5"/></svg></span></div>
+        <h3>Kontakte</h3>
+        <p>Alle Kolleg:innen durchsuchen und direkt in den 1:1-Chat wechseln.</p>
+        <span class="screen-card__route">/contacts</span>
+      </a>
+      <a class="screen-card" href="direct-chat.html">
+        <div class="screen-card__top"><span class="screen-card__num">05</span><span class="screen-card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.4a7.4 7.4 0 0 1-7.4 7.4H8.2L4 22v-5.4a7.4 7.4 0 0 1 4.2-13.2h4.4A7.4 7.4 0 0 1 20 11.4Z"/><path d="m8 12 2.5 2.5L16 9"/></svg></span></div>
+        <h3>Direktchat</h3>
+        <p>Unterhaltung mit Ben Osei, Lesebestätigung und neuer Nachricht.</p>
+        <span class="screen-card__route">/direct-chat</span>
+      </a>
+      <a class="screen-card" href="group-chat.html">
+        <div class="screen-card__top"><span class="screen-card__num">06</span><span class="screen-card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.4"/><path d="M3.5 19c.4-3 2.4-5 5.5-5s5.1 2 5.5 5"/><path d="M15.5 14.4c2.4.2 4 1.8 4.5 4.1"/></svg></span></div>
+        <h3>Gruppenchat</h3>
+        <p>Produkt &amp; Design mit mehreren Absendern und Gruppeninfo-Zugang.</p>
+        <span class="screen-card__route">/group-chat</span>
+      </a>
+      <a class="screen-card" href="new-group.html">
+        <div class="screen-card__top"><span class="screen-card__num">07</span><span class="screen-card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.5-3.1 2.5-5 5.5-5s5 1.9 5.5 5"/><path d="M18 8v6M15 11h6"/></svg></span></div>
+        <h3>Neue Gruppe</h3>
+        <p>Name, optionales Foto und Mitgliederauswahl mit Validierung.</p>
+        <span class="screen-card__route">/new-group</span>
+      </a>
+      <a class="screen-card" href="group-info.html">
+        <div class="screen-card__top"><span class="screen-card__num">08</span><span class="screen-card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></span></div>
+        <h3>Gruppeninfo</h3>
+        <p>Name und Foto ändern, Admins verwalten, Mitglieder entfernen.</p>
+        <span class="screen-card__route">/group-info</span>
+      </a>
+      <a class="screen-card" href="group-info-member.html">
+        <div class="screen-card__top"><span class="screen-card__num">09</span><span class="screen-card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.6-3.7 3.2-6 7-6s6.4 2.3 7 6"/></svg></span></div>
+        <h3>Gruppeninfo als Mitglied</h3>
+        <p>Lesende Ansicht ohne Admin-Rechte, mit Möglichkeit zu gehen.</p>
+        <span class="screen-card__route">/group-info-member</span>
+      </a>
+      <a class="screen-card" href="status-viewer.html">
+        <div class="screen-card__top"><span class="screen-card__num">10</span><span class="screen-card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5l3 2"/></svg></span></div>
+        <h3>Status ansehen</h3>
+        <p>Vollbild-Status mit Fortschritt, Bildunterschrift und Teamliste.</p>
+        <span class="screen-card__route">/status-viewer</span>
+      </a>
+      <a class="screen-card" href="status-create.html">
+        <div class="screen-card__top"><span class="screen-card__num">11</span><span class="screen-card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="3"/><circle cx="9" cy="10" r="1.5"/><path d="m5 17 4.5-4.5 3.5 3.5 2.5-2.5L19 17"/></svg></span></div>
+        <h3>Status erstellen</h3>
+        <p>Bild auswählen, Vorschau prüfen und Status für 24 Stunden teilen.</p>
+        <span class="screen-card__route">/status-create</span>
+      </a>
+      <a class="screen-card" href="profile.html">
+        <div class="screen-card__top"><span class="screen-card__num">12</span><span class="screen-card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.6-3.7 3.2-6 7-6s6.4 2.3 7 6"/></svg></span></div>
+        <h3>Profil</h3>
+        <p>Profilbild, Anzeigename, Statustext, Passwort und Konto löschen.</p>
+        <span class="screen-card__route">/profile</span>
+      </a>
+      <a class="screen-card" href="imprint.html">
+        <div class="screen-card__top"><span class="screen-card__num">13</span><span class="screen-card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l3 3v15H6z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg></span></div>
+        <h3>Impressum</h3>
+        <p>Anbieterangaben, Kontakt und rechtliche Hinweise — ohne Login.</p>
+        <span class="screen-card__route">/imprint</span>
+      </a>
+      <a class="screen-card" href="privacy.html">
+        <div class="screen-card__top"><span class="screen-card__num">14</span><span class="screen-card__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.4 2.9 8.3 7 9.5 4.1-1.2 7-5.1 7-9.5V6Z"/><path d="M9 12l2 2 4-4"/></svg></span></div>
+        <h3>Datenschutz</h3>
+        <p>Datenkategorien, Speicherdauer und Rechte — ohne Login.</p>
+        <span class="screen-card__route">/privacy</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="index-section" aria-labelledby="tokens-heading">
+    <div class="index-section__head">
+      <div>
+        <div class="eyebrow">Designsystem</div>
+        <h2 id="tokens-heading" style="margin-top:6px;">Eine Sprache für alle Screens</h2>
+        <p>Farben, Typografie und Abstände kommen aus denselben Tokens in styles.css.</p>
+      </div>
+      <span class="badge badge--outline">OKLch · Systemfonts</span>
+    </div>
+    <div class="index-token-grid">
+      <div class="index-token"><div class="index-token__swatch" style="background:var(--ink);"></div><div class="index-token__body"><div class="index-token__name">--ink</div><div class="index-token__value">oklch(21% .026 242)</div></div></div>
+      <div class="index-token"><div class="index-token__swatch" style="background:var(--accent);"></div><div class="index-token__body"><div class="index-token__name">--accent</div><div class="index-token__value">oklch(53% .104 176)</div></div></div>
+      <div class="index-token"><div class="index-token__swatch" style="background:var(--accent-soft);"></div><div class="index-token__body"><div class="index-token__name">--accent-soft</div><div class="index-token__value">oklch(94.5% .035 176)</div></div></div>
+      <div class="index-token"><div class="index-token__swatch" style="background:var(--bg); border-bottom:1px solid var(--line);"></div><div class="index-token__body"><div class="index-token__name">--bg</div><div class="index-token__value">oklch(97.4% .006 225)</div></div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="index-foot">
+  <span>OfficeMessenger2 · Screensammlung · Stand Oktober 2026</span>
+  <div class="index-foot__links">
+    <a href="imprint.html">Impressum</a>
+    <a href="privacy.html">Datenschutz</a>
+    <a href="login.html">Login</a>
+  </div>
+</footer>
+</body>
+</html>

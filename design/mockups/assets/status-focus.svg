@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-label="Statusbild Schreibtisch im Morgenlicht">
+  <defs>
+    <linearGradient id="bg" x1="150" y1="0" x2="1090" y2="1600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f2525"/>
+      <stop offset=".45" stop-color="#234640"/>
+      <stop offset="1" stop-color="#b9a77b"/>
+    </linearGradient>
+    <linearGradient id="light" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ffe7aa" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#ffe7aa" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#efe5cd"/>
+      <stop offset="1" stop-color="#cbbd9d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".72" cy=".24" r=".5">
+      <stop stop-color="#ffe6a3" stop-opacity=".68"/>
+      <stop offset="1" stop-color="#ffe6a3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="1600" fill="url(#bg)"/>
+  <rect width="1200" height="1600" fill="url(#glow)"/>
+  <path d="M640 0L1200 0L1200 980L280 1280Z" fill="url(#light)" opacity=".34"/>
+  <rect x="118" y="932" width="964" height="50" rx="8" fill="#d8c39a" opacity=".7"/>
+  <rect x="102" y="972" width="996" height="628" fill="#614c33"/>
+  <path d="M102 972H1098L960 1600H240Z" fill="#4c3a27" opacity=".54"/>
+  <rect x="214" y="792" width="452" height="310" rx="18" fill="#1b2b28" opacity=".82" transform="rotate(-4 214 792)"/>
+  <rect x="238" y="815" width="404" height="263" rx="10" fill="#f5eedc" transform="rotate(-4 238 815)"/>
+  <path d="M282 884H592M282 931H590M282 978H537" stroke="#39423b" stroke-width="8" stroke-linecap="round" opacity=".5"/>
+  <rect x="234" y="1003" width="180" height="24" rx="12" fill="#b9a679" opacity=".5" transform="rotate(-4 234 1003)"/>
+  <circle cx="930" cy="876" r="108" fill="#e6d1a4"/>
+  <circle cx="930" cy="876" r="87" fill="#1d2925"/>
+  <circle cx="930" cy="876" r="67" fill="#6a4c2e"/>
+  <path d="M877 844C900 814 968 812 991 848" fill="none" stroke="#f2dfb4" stroke-width="12" stroke-linecap="round" opacity=".7"/>
+  <path d="M894 798C880 745 903 704 938 671M967 794C991 741 958 690 944 658" fill="none" stroke="#ffe8b9" stroke-width="10" stroke-linecap="round" opacity=".38"/>
+  <rect x="757" y="1027" width="311" height="28" rx="14" fill="#d7c197" opacity=".25"/>
+  <circle cx="1062" cy="1152" r="33" fill="#1b2925" opacity=".7"/>
+  <path d="M212 1176C330 1110 438 1125 545 1240" fill="none" stroke="#f0dcaf" stroke-width="2" opacity=".22"/>
+  <path d="M120 1470C348 1404 718 1435 1098 1322" fill="none" stroke="#f0dcaf" stroke-width="2" opacity=".18"/>
+</svg>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="screen-route" content="/status-create">
+  <title>Neuer Status — OfficeMessenger2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="status-create">
+<!-- serves: AC-08, AC-20, AC-23, AC-32 -->
+<div class="app">
+  <aside class="rail" aria-label="App-Navigation">
+    <a class="brandmark" href="chats.html" aria-label="OfficeMessenger2">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M6.4 9.2A6.2 6.2 0 0 1 12.6 3h7.2a6.2 6.2 0 0 1 6.2 6.2v5.7a6.2 6.2 0 0 1-6.2 6.2h-3.5l-5.7 4.3c-.9.7-2.1 0-2.1-1.1v-4.4a6.2 6.2 0 0 1-2.1-4.6Z" fill="currentColor"/>
+        <path d="M11.8 9.2h8.4M11.8 13.3h5.2" fill="none" stroke="#173f3a" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </a>
+    <nav class="rail-nav">
+      <a class="rail-link is-active" href="chats.html" aria-current="page" aria-label="Chats">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.4a7.4 7.4 0 0 1-7.4 7.4H8.2L4 22v-5.4a7.4 7.4 0 0 1 4.2-13.2h4.4A7.4 7.4 0 0 1 20 11.4Z"/><path d="M8 9.5h7M8 13h4.5"/></svg>
+        <span>Chats</span>
+      </a>
+      <a class="rail-link" href="contacts.html" aria-label="Kontakte">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.5-3.1 2.5-5 5.5-5s5 1.9 5.5 5"/><path d="M16 8.4a3 3 0 0 1 0 5.7M17 14c2.1.5 3.4 2.2 3.8 4.5"/></svg>
+        <span>Kontakte</span>
+      </a>
+      <a class="rail-link" href="profile.html" aria-label="Profil">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.6-3.7 3.2-6 7-6s6.4 2.3 7 6"/></svg>
+        <span>Profil</span>
+      </a>
+    </nav>
+    <div class="rail-spacer"></div>
+    <a class="rail-user" href="profile.html" aria-label="Eigenes Profil öffnen">
+      <img class="avatar avatar--md" src="assets/avatar-anna.svg" alt="Anna Weber">
+    </a>
+    <div class="rail-legal">
+      <a href="imprint.html">Impressum</a>
+      <a href="privacy.html">Datenschutz</a>
+    </div>
+  </aside>
+
+  <main class="app-main">
+    <div class="page">
+      <header class="page-header" data-od-id="status-create-header">
+        <div class="page-header__copy">
+          <div class="eyebrow">Status · 24 Stunden</div>
+          <h1>Neuer Status</h1>
+          <p class="page-subtitle">Teile einen Moment mit deinem Team. Dein Status ist für alle Kontakte sichtbar und verschwindet nach 24 Stunden.</p>
+        </div>
+        <div class="page-actions">
+          <a class="btn btn--outline" href="chats.html">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
+            Zurück zu den Chats
+          </a>
+        </div>
+      </header>
+
+      <div class="status-composer">
+        <section class="status-preview" aria-label="Vorschau deines Status" data-od-id="status-create-preview">
+          <img id="status-preview-image" src="assets/status-focus.svg" alt="Vorschau des Statusbilds">
+          <div class="status-preview__scrim"></div>
+          <div class="status-preview__top" aria-hidden="true">
+            <div class="status-preview__seg"></div>
+            <div class="status-preview__seg"></div>
+            <div class="status-preview__seg"></div>
+          </div>
+          <div class="status-preview__caption">Fokusmodus — bitte nicht stören.</div>
+        </section>
+
+        <form class="status-form-card" id="status-form" novalidate data-od-id="status-create-form">
+          <h2>Was ist heute dein Moment?</h2>
+          <p class="status-form-card__intro">Ein Bild reicht. Eine kurze Zeile macht daraus einen Status.</p>
+
+          <div class="form-stack">
+            <div class="field">
+              <span class="label">Statusbild</span>
+              <label class="upload-box" for="status-image">
+                <span class="upload-box__icon">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="3"/><circle cx="9" cy="10" r="1.5"/><path d="m5 17 4.5-4.5 3.5 3.5 2.5-2.5L19 17"/></svg>
+                </span>
+                <strong>Bild auswählen</strong>
+                <span>JPEG, PNG oder WebP · maximal 5 MB</span>
+                <input id="status-image" type="file" accept="image/jpeg,image/png,image/webp">
+              </label>
+              <div class="field__error" id="status-image-error">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></svg>
+                <span>Bitte wähle zuerst ein Bild für deinen Status.</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="status-caption">Bildunterschrift <span class="muted" style="font-weight:500;">(optional)</span></label>
+              <input class="input" id="status-caption" type="text" maxlength="90" value="Fokusmodus — bitte nicht stören." autocomplete="off">
+              <div class="field__hint">Bis zu 90 Zeichen. Die Unterschrift erscheint über dem Bild.</div>
+            </div>
+
+            <div class="status-expiry">
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5l3 2"/></svg>
+              <span>Sichtbar für alle Kontakte · verschwindet automatisch nach 24 Stunden.</span>
+            </div>
+
+            <div class="form-actions" style="justify-content:stretch;">
+              <button class="btn btn--primary btn--lg btn--block" type="submit">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 12 16-7-5 16-3.4-6.6L4 12Z"/></svg>
+                Status teilen
+              </button>
+            </div>
+            <a class="btn btn--ghost btn--block" href="chats.html">Abbrechen</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer class="legal-bar">
+      <span>OfficeMessenger2 · internes Büro</span>
+      <div class="legal-bar__links">
+        <a href="imprint.html">Impressum</a>
+        <a href="privacy.html">Datenschutzerklärung</a>
+      </div>
+    </footer>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

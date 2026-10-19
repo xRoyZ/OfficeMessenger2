@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Profilbild Jonas Petri">
+  <defs>
+    <linearGradient id="g" x1="18" y1="12" x2="235" y2="246" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#334f6b"/>
+      <stop offset="1" stop-color="#a6c6e0"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" fill="url(#g)"/>
+  <circle cx="205" cy="208" r="86" fill="#fff" opacity=".12"/>
+  <circle cx="40" cy="45" r="55" fill="#1f3950" opacity=".2"/>
+  <path d="M18 90L166 238M90 18L238 166" stroke="#fff" stroke-width="1.5" opacity=".16"/>
+  <text x="128" y="151" text-anchor="middle" font-family="Aptos, Segoe UI, sans-serif" font-size="82" font-weight="600" letter-spacing="-3" fill="#f7fbff">JP</text>
+</svg>

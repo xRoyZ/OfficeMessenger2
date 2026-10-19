@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Profilbild Greta Sommer">
+  <defs>
+    <linearGradient id="g" x1="18" y1="12" x2="235" y2="246" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4d6030"/>
+      <stop offset="1" stop-color="#c2d194"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" fill="url(#g)"/>
+  <circle cx="45" cy="45" r="69" fill="#fff" opacity=".12"/>
+  <circle cx="212" cy="215" r="82" fill="#33441d" opacity=".19"/>
+  <path d="M0 128H256M128 0V256" stroke="#fff" stroke-width="1.5" opacity=".14"/>
+  <text x="128" y="151" text-anchor="middle" font-family="Aptos, Segoe UI, sans-serif" font-size="82" font-weight="600" letter-spacing="-3" fill="#fafdf3">GS</text>
+</svg>

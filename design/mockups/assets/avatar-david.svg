@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Profilbild David Klein">
+  <defs>
+    <linearGradient id="g" x1="18" y1="12" x2="235" y2="246" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#344a3f"/>
+      <stop offset="1" stop-color="#a5b8a5"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" fill="url(#g)"/>
+  <rect x="157" y="-26" width="128" height="128" rx="28" fill="#fff" opacity=".09" transform="rotate(18 157 -26)"/>
+  <circle cx="35" cy="224" r="76" fill="#1d3028" opacity=".22"/>
+  <path d="M20 60H236M20 196H236" stroke="#fff" stroke-width="1.5" opacity=".16"/>
+  <text x="128" y="151" text-anchor="middle" font-family="Aptos, Segoe UI, sans-serif" font-size="82" font-weight="600" letter-spacing="-3" fill="#f7fcf7">DK</text>
+</svg>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="screen-route" content="/group-info">
+  <title>Gruppeninfo — OfficeMessenger2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="group-info">
+<!-- serves: AC-05, AC-06, AC-13, AC-14, AC-15, AC-23, AC-32 -->
+<div class="app">
+  <aside class="rail" aria-label="App-Navigation">
+    <a class="brandmark" href="chats.html" aria-label="OfficeMessenger2">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M6.4 9.2A6.2 6.2 0 0 1 12.6 3h7.2a6.2 6.2 0 0 1 6.2 6.2v5.7a6.2 6.2 0 0 1-6.2 6.2h-3.5l-5.7 4.3c-.9.7-2.1 0-2.1-1.1v-4.4a6.2 6.2 0 0 1-2.1-4.6Z" fill="currentColor"/>
+        <path d="M11.8 9.2h8.4M11.8 13.3h5.2" fill="none" stroke="#173f3a" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </a>
+    <nav class="rail-nav">
+      <a class="rail-link is-active" href="chats.html" aria-current="page" aria-label="Chats">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.4a7.4 7.4 0 0 1-7.4 7.4H8.2L4 22v-5.4a7.4 7.4 0 0 1 4.2-13.2h4.4A7.4 7.4 0 0 1 20 11.4Z"/><path d="M8 9.5h7M8 13h4.5"/></svg>
+        <span>Chats</span>
+      </a>
+      <a class="rail-link" href="contacts.html" aria-label="Kontakte">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.5-3.1 2.5-5 5.5-5s5 1.9 5.5 5"/><path d="M16 8.4a3 3 0 0 1 0 5.7M17 14c2.1.5 3.4 2.2 3.8 4.5"/></svg>
+        <span>Kontakte</span>
+      </a>
+      <a class="rail-link" href="profile.html" aria-label="Profil">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.6-3.7 3.2-6 7-6s6.4 2.3 7 6"/></svg>
+        <span>Profil</span>
+      </a>
+    </nav>
+    <div class="rail-spacer"></div>
+    <a class="rail-user" href="profile.html" aria-label="Eigenes Profil öffnen">
+      <img class="avatar avatar--md" src="assets/avatar-anna.svg" alt="Anna Weber">
+    </a>
+    <div class="rail-legal">
+      <a href="imprint.html">Impressum</a>
+      <a href="privacy.html">Datenschutz</a>
+    </div>
+  </aside>
+
+  <main class="app-main">
+    <div class="page">
+      <header class="page-header" data-od-id="group-info-header">
+        <div class="page-header__copy">
+          <div class="eyebrow">Gruppe · 5 Mitglieder</div>
+          <h1>Gruppeninfo</h1>
+          <p class="page-subtitle">Name, Foto und Mitglieder von „Produkt &amp; Design“ verwalten. Du bist Admin dieser Gruppe.</p>
+        </div>
+        <div class="page-actions">
+          <a class="btn btn--outline" href="group-chat.html">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.4a7.4 7.4 0 0 1-7.4 7.4H8.2L4 22v-5.4a7.4 7.4 0 0 1 4.2-13.2h4.4A7.4 7.4 0 0 1 20 11.4Z"/></svg>
+            Zum Chat
+          </a>
+        </div>
+      </header>
+
+      <div class="split-layout">
+        <div class="settings-stack">
+          <section class="settings-card" aria-labelledby="identity-heading" data-od-id="group-identity-card">
+            <div class="settings-card__head">
+              <h2 id="identity-heading">Gruppenprofil</h2>
+              <p>Der Name und das Foto sind für alle Mitglieder sichtbar.</p>
+            </div>
+
+            <div class="avatar-editor">
+              <img class="avatar avatar--lg" id="group-photo-preview" src="assets/group-product.svg" alt="Gruppenfoto von Produkt &amp; Design" data-group-photo>
+              <div class="avatar-editor__body">
+                <div class="avatar-editor__title">Gruppenfoto</div>
+                <p class="avatar-editor__hint">JPEG, PNG oder WebP · maximal 5 MB</p>
+                <label class="btn btn--sm btn--outline" for="group-photo-input">Foto ändern</label>
+                <input id="group-photo-input" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+              </div>
+            </div>
+            <div class="form-message form-message--error" id="group-photo-error" role="alert">
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></svg>
+              <span></span>
+            </div>
+
+            <form class="form-stack" id="group-name-form" style="margin-top:18px;">
+              <div class="field">
+                <label class="label" for="group-name-edit">Gruppenname</label>
+                <input class="input" id="group-name-edit" type="text" value="Produkt &amp; Design" maxlength="60" autocomplete="off">
+                <div class="field__error" id="group-name-error">
+                  <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></svg>
+                  <span>Bitte gib einen Gruppennamen ein.</span>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn--primary" type="submit">Namen speichern</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="members-card" aria-labelledby="members-heading" data-od-id="group-members-card">
+            <div class="section-head">
+              <div>
+                <h2 id="members-heading">Mitglieder</h2>
+                <p><span data-member-count>5 Mitglieder</span> · <span id="admin-count">2 Admins</span></p>
+              </div>
+              <button class="btn btn--sm btn--outline" type="button" data-open-dialog="add-member-dialog">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                Mitglied hinzufügen
+              </button>
+            </div>
+
+            <div class="search" style="margin-bottom:12px;">
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg>
+              <label class="sr-only" for="member-search">Mitglieder durchsuchen</label>
+              <input class="input" id="member-search" type="search" placeholder="Mitglieder durchsuchen …" autocomplete="off">
+            </div>
+
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr><th>Person</th><th>Rolle</th><th style="text-align:right;">Aktionen</th></tr>
+                </thead>
+                <tbody id="member-table-body">
+                  <tr data-member-row data-admin="1">
+                    <td data-label="Person">
+                      <div class="member-cell">
+                        <img class="avatar avatar--sm" src="assets/avatar-anna.svg" alt="">
+                        <div><div class="member-cell__name">Anna Weber <span class="badge badge--outline">Du</span></div><div class="member-cell__info">Produktdesign</div></div>
+                      </div>
+                    </td>
+                    <td data-label="Rolle"><span class="badge badge--accent" data-member-role>Admin</span></td>
+                    <td data-label="Aktionen"><div class="member-actions"><span class="badge badge--outline">Eigene Rolle</span></div></td>
+                  </tr>
+                  <tr data-member-row data-admin="1">
+                    <td data-label="Person">
+                      <div class="member-cell">
+                        <img class="avatar avatar--sm" src="assets/avatar-ben.svg" alt="">
+                        <div><div class="member-cell__name">Ben Osei</div><div class="member-cell__info">Engineering</div></div>
+                      </div>
+                    </td>
+                    <td data-label="Rolle"><span class="badge badge--accent" data-member-role>Admin</span></td>
+                    <td data-label="Aktionen"><div class="member-actions"><button class="btn btn--sm btn--ghost" type="button" data-toggle-admin>Admin entziehen</button><button class="btn btn--sm btn--ghost" type="button" data-remove-member>Entfernen</button></div></td>
+                  </tr>
+                  <tr data-member-row data-admin="0">
+                    <td data-label="Person">
+                      <div class="member-cell">
+                        <img class="avatar avatar--sm" src="assets/avatar-clara.svg" alt="">
+                        <div><div class="member-cell__name">Clara Nguyen</div><div class="member-cell__info">Brand &amp; Content</div></div>
+                      </div>
+                    </td>
+                    <td data-label="Rolle"><span class="badge" data-member-role>Mitglied</span></td>
+                    <td data-label="Aktionen"><div class="member-actions"><button class="btn btn--sm btn--ghost" type="button" data-toggle-admin>Zum Admin machen</button><button class="btn btn--sm btn--ghost" type="button" data-remove-member>Entfernen</button></div></td>
+                  </tr>
+                  <tr data-member-row data-admin="0">
+                    <td data-label="Person">
+                      <div class="member-cell">
+                        <img class="avatar avatar--sm" src="assets/avatar-elif.svg" alt="">
+                        <div><div class="member-cell__name">Elif Yilmaz</div><div class="member-cell__info">Produktmanagement</div></div>
+                      </div>
+                    </td>
+                    <td data-label="Rolle"><span class="badge" data-member-role>Mitglied</span></td>
+                    <td data-label="Aktionen"><div class="member-actions"><button class="btn btn--sm btn--ghost" type="button" data-toggle-admin>Zum Admin machen</button><button class="btn btn--sm btn--ghost" type="button" data-remove-member>Entfernen</button></div></td>
+                  </tr>
+                  <tr data-member-row data-admin="0">
+                    <td data-label="Person">
+                      <div class="member-cell">
+                        <img class="avatar avatar--sm" src="assets/avatar-farid.svg" alt="">
+                        <div><div class="member-cell__name">Farid Haddad</div><div class="member-cell__info">Data</div></div>
+                      </div>
+                    </td>
+                    <td data-label="Rolle"><span class="badge" data-member-role>Mitglied</span></td>
+                    <td data-label="Aktionen"><div class="member-actions"><button class="btn btn--sm btn--ghost" type="button" data-toggle-admin>Zum Admin machen</button><button class="btn btn--sm btn--ghost" type="button" data-remove-member>Entfernen</button></div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="settings-card danger-zone" aria-labelledby="danger-heading" data-od-id="group-danger-card">
+            <div class="settings-card__head">
+              <h3 id="danger-heading">Zugriff &amp; Mitgliedschaft</h3>
+              <p>Diese Aktionen betreffen deine eigene Rolle in der Gruppe.</p>
+            </div>
+            <div class="danger-row" style="margin-bottom:14px;">
+              <div>
+                <div class="avatar-editor__title">Admin-Rechte abgeben</div>
+                <p>Danach kannst du den Namen und die Mitglieder nicht mehr verwalten.</p>
+              </div>
+              <button class="btn btn--sm btn--outline" type="button" id="demote-self">Admin-Rechte abgeben</button>
+            </div>
+            <div class="inline-note" id="last-admin-note" hidden>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></svg>
+              <span>Du bist die letzte Admin-Person. Mache zuerst jemand anderen zum Admin, bevor du die Gruppe verlässt oder deine Rechte abgibst.</span>
+            </div>
+            <div class="danger-row">
+              <div>
+                <div class="avatar-editor__title">Gruppe verlassen</div>
+                <p>Der Chat verschwindet aus deiner Chatliste. Andere Mitglieder bleiben.</p>
+              </div>
+              <button class="btn btn--sm btn--danger" type="button" id="leave-group">Gruppe verlassen</button>
+            </div>
+          </section>
+        </div>
+
+        <aside class="group-summary" aria-labelledby="summary-heading" data-od-id="group-summary-card">
+          <div class="group-summary__cover">
+            <img src="assets/group-product.svg" alt="" data-group-photo>
+          </div>
+          <div class="group-summary__body">
+            <img class="group-summary__avatar" src="assets/group-product.svg" alt="Gruppenfoto" data-group-photo>
+            <h2 id="summary-heading" data-group-name>Produkt &amp; Design</h2>
+            <div class="group-summary__meta">
+              <span class="badge badge--accent">5 Mitglieder</span>
+              <span class="badge badge--outline">2 Admins</span>
+              <span class="badge badge--outline">Seit März 2025</span>
+            </div>
+            <p class="group-summary__desc">Der Ort für Screens, Copy und die kleinen Entscheidungen, die das Produkt jeden Tag besser machen.</p>
+            <div class="group-summary__actions">
+              <a class="btn btn--primary btn--block" href="group-chat.html">Zum Gruppenchat</a>
+              <button class="btn btn--outline btn--block" type="button" data-open-dialog="add-member-dialog">Mitglied hinzufügen</button>
+            </div>
+            <div class="group-summary__legal">
+              <div>Erstellt von Anna Weber</div>
+              <div style="margin-top:3px;">Gruppeninfo · nur für Mitglieder sichtbar</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <footer class="legal-bar">
+      <span>OfficeMessenger2 · internes Büro</span>
+      <div class="legal-bar__links">
+        <a href="imprint.html">Impressum</a>
+        <a href="privacy.html">Datenschutzerklärung</a>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<dialog class="dialog" id="add-member-dialog" aria-labelledby="add-member-title">
+  <form class="dialog__panel" id="add-member-form">
+    <div class="dialog__head">
+      <div>
+        <h2 id="add-member-title">Mitglied hinzufügen</h2>
+        <p>Wähle Personen aus deinem Kontaktverzeichnis.</p>
+      </div>
+      <button class="btn btn--icon btn--sm btn--ghost" type="button" data-close-dialog aria-label="Dialog schließen">
+        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="dialog__body">
+      <div class="member-picker">
+        <label class="member-option">
+          <input type="checkbox" name="add-members" value="greta" data-avatar="assets/avatar-greta.svg" data-name="Greta Sommer" data-info="People &amp; Culture">
+          <img class="avatar avatar--sm" src="assets/avatar-greta.svg" alt="">
+          <span class="member-option__body"><span class="member-option__name">Greta Sommer</span><span class="member-option__info">People &amp; Culture</span></span>
+        </label>
+        <label class="member-option">
+          <input type="checkbox" name="add-members" value="david" data-avatar="assets/avatar-david.svg" data-name="David Klein" data-info="Operations">
+          <img class="avatar avatar--sm" src="assets/avatar-david.svg" alt="">
+          <span class="member-option__body"><span class="member-option__name">David Klein</span><span class="member-option__info">Operations</span></span>
+        </label>
+        <label class="member-option">
+          <input type="checkbox" name="add-members" value="jonas" data-avatar="assets/avatar-jonas.svg" data-name="Jonas Petri" data-info="QA">
+          <img class="avatar avatar--sm" src="assets/avatar-jonas.svg" alt="">
+          <span class="member-option__body"><span class="member-option__name">Jonas Petri</span><span class="member-option__info">QA</span></span>
+        </label>
+      </div>
+    </div>
+    <div class="dialog__actions">
+      <button class="btn btn--ghost" type="button" data-close-dialog>Abbrechen</button>
+      <button class="btn btn--primary" type="submit" id="add-member-submit" disabled>Hinzufügen</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="dialog" id="remove-member-dialog" aria-labelledby="remove-member-title">
+  <form class="dialog__panel" id="remove-member-form">
+    <div class="dialog__head">
+      <div>
+        <h2 id="remove-member-title">Mitglied entfernen</h2>
+        <p><span id="remove-member-name">Diese Person</span> verliert den Zugriff auf die Gruppe und den Chatverlauf.</p>
+      </div>
+      <button class="btn btn--icon btn--sm btn--ghost" type="button" data-close-dialog aria-label="Dialog schließen">
+        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="dialog__body">
+      <div class="dialog__warn">
+        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></svg>
+        <span>Die Person kann später erneut hinzugefügt werden. Bereits gesendete Nachrichten bleiben im Verlauf.</span>
+      </div>
+    </div>
+    <div class="dialog__actions">
+      <button class="btn btn--ghost" type="button" data-close-dialog>Abbrechen</button>
+      <button class="btn btn--danger" type="submit">Mitglied entfernen</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="dialog" id="leave-group-dialog" aria-labelledby="leave-group-title">
+  <form class="dialog__panel" id="leave-group-form">
+    <div class="dialog__head">
+      <div>
+        <h2 id="leave-group-title">Gruppe verlassen?</h2>
+        <p>Du erhältst keine neuen Nachrichten aus „Produkt &amp; Design“ mehr.</p>
+      </div>
+      <button class="btn btn--icon btn--sm btn--ghost" type="button" data-close-dialog aria-label="Dialog schließen">
+        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="dialog__body">
+      <div class="dialog__warn">
+        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></svg>
+        <span>Du kannst der Gruppe nur über eine Einladung wieder beitreten. Der bisherige Verlauf bleibt für die anderen Mitglieder sichtbar.</span>
+      </div>
+    </div>
+    <div class="dialog__actions">
+      <button class="btn btn--ghost" type="button" data-close-dialog>Bleiben</button>
+      <button class="btn btn--danger" type="submit">Gruppe verlassen</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
